@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频与图文内容管理平台 - 后台管理系统</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="admin-container">
+        <!-- 侧边栏 -->
+        <aside class="sidebar">
+            <div class="logo">
+                <i class="fas fa-video"></i>
+                <h2>内容管理平台</h2>
+            </div>
+            <nav class="nav-menu">
+                <ul>
+                    <li class="nav-item active" data-page="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>仪表盘</span>
+                    </li>
+                    <li class="nav-item" data-page="accounts">
+                        <i class="fas fa-users"></i>
+                        <span>账号管理</span>
+                    </li>
+                    <li class="nav-item" data-page="content">
+                        <i class="fas fa-file-video"></i>
+                        <span>内容管理</span>
+                    </li>
+                    <li class="nav-item" data-page="publish">
+                        <i class="fas fa-paper-plane"></i>
+                        <span>发布管理</span>
+                    </li>
+                    <li class="nav-item" data-page="interaction">
+                        <i class="fas fa-comments"></i>
+                        <span>交互管理</span>
+                    </li>
+                    <li class="nav-item" data-page="statistics">
+                        <i class="fas fa-chart-bar"></i>
+                        <span>数据统计</span>
+                    </li>
+                    <li class="nav-item" data-page="ai-config">
+                        <i class="fas fa-robot"></i>
+                        <span>AI配置</span>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 顶部导航 -->
+            <header class="top-header">
+                <div class="header-left">
+                    <button class="sidebar-toggle">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                    <h1 id="page-title">仪表盘</h1>
+                </div>
+                <div class="header-right">
+                    <div class="user-info">
+                        <i class="fas fa-user-circle"></i>
+                        <span>管理员</span>
+                        <button class="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i>
+                        </button>
+                    </div>
+                </div>
+            </header>
+
+            <!-- 页面内容区域 -->
+            <div class="content-area">
+                <!-- 仪表盘页面 -->
+                <div id="dashboard" class="page-content active">
+                    <div class="dashboard-grid">
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-users"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>5</h3>
+                                <p>绑定账号</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-file-video"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>128</h3>
+                                <p>内容总数</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-paper-plane"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>89</h3>
+                                <p>已发布</p>
+                            </div>
+                        </div>
+                        <div class="stat-card">
+                            <div class="stat-icon">
+                                <i class="fas fa-comments"></i>
+                            </div>
+                            <div class="stat-info">
+                                <h3>256</h3>
+                                <p>待处理评论</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-charts">
+                        <div class="chart-container">
+                            <h3>最近发布趋势</h3>
+                            <div class="chart-placeholder">
+                                <p>发布趋势图表将在此显示</p>
+                            </div>
+                        </div>
+                        <div class="recent-activity">
+                            <h3>最近活动</h3>
+                            <div class="activity-list">
+                                <div class="activity-item">
+                                    <i class="fas fa-upload"></i>
+                                    <span>上传了新视频 "产品介绍.mp4"</span>
+                                    <span class="time">2分钟前</span>
+                                </div>
+                                <div class="activity-item">
+                                    <i class="fas fa-paper-plane"></i>
+                                    <span>发布内容到抖音账号 "品牌官方"</span>
+                                    <span class="time">10分钟前</span>
+                                </div>
+                                <div class="activity-item">
+                                    <i class="fas fa-comment"></i>
+                                    <span>收到新评论并自动回复</span>
+                                    <span class="time">15分钟前</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 账号管理页面 -->
+                <div id="accounts" class="page-content">
+                    <div class="page-header">
+                        <h2>账号管理</h2>
+                        <button class="btn btn-primary" onclick="openAddAccountModal()">
+                            <i class="fas fa-plus"></i>
+                            添加账号
+                        </button>
+                    </div>
+                    <div class="accounts-grid">
+                        <div class="account-card">
+                            <div class="account-header">
+                                <div class="platform-icon douyin">
+                                    <i class="fas fa-music"></i>
+                                </div>
+                                <div class="account-info">
+                                    <h4>品牌官方</h4>
+                                    <p>抖音账号</p>
+                                </div>
+                                <div class="account-status online">
+                                    <span>在线</span>
+                                </div>
+                            </div>
+                            <div class="account-stats">
+                                <div class="stat">
+                                    <span class="label">粉丝数</span>
+                                    <span class="value">12.5K</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">作品数</span>
+                                    <span class="value">45</span>
+                                </div>
+                            </div>
+                            <div class="account-actions">
+                                <button class="btn btn-sm btn-outline">编辑</button>
+                                <button class="btn btn-sm btn-outline">删除</button>
+                            </div>
+                        </div>
+                        
+                        <div class="account-card">
+                            <div class="account-header">
+                                <div class="platform-icon xiaohongshu">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="account-info">
+                                    <h4>生活博主</h4>
+                                    <p>小红书账号</p>
+                                </div>
+                                <div class="account-status offline">
+                                    <span>离线</span>
+                                </div>
+                            </div>
+                            <div class="account-stats">
+                                <div class="stat">
+                                    <span class="label">粉丝数</span>
+                                    <span class="value">8.3K</span>
+                                </div>
+                                <div class="stat">
+                                    <span class="label">笔记数</span>
+                                    <span class="value">32</span>
+                                </div>
+                            </div>
+                            <div class="account-actions">
+                                <button class="btn btn-sm btn-outline">编辑</button>
+                                <button class="btn btn-sm btn-outline">删除</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 内容管理页面 -->
+                <div id="content" class="page-content">
+                    <div class="page-header">
+                        <h2>内容管理</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-outline" onclick="openBatchImportModal()">
+                                <i class="fas fa-upload"></i>
+                                批量导入
+                            </button>
+                            <button class="btn btn-primary" onclick="openAddContentModal()">
+                                <i class="fas fa-plus"></i>
+                                添加内容
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="content-filters">
+                        <div class="filter-group">
+                            <label>内容类型：</label>
+                            <select>
+                                <option value="">全部</option>
+                                <option value="video">视频</option>
+                                <option value="image">图文</option>
+                            </select>
+                        </div>
+                        <div class="filter-group">
+                            <label>状态：</label>
+                            <select>
+                                <option value="">全部</option>
+                                <option value="draft">草稿</option>
+                                <option value="published">已发布</option>
+                                <option value="scheduled">定时发布</option>
+                            </select>
+                        </div>
+                        <div class="search-box">
+                            <input type="text" placeholder="搜索内容标题或标签">
+                            <button><i class="fas fa-search"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="content-grid">
+                        <div class="content-item">
+                            <div class="content-thumbnail">
+                                <video src="" poster="/api/placeholder/200/150"></video>
+                                <div class="content-type">视频</div>
+                            </div>
+                            <div class="content-info">
+                                <h4>产品介绍视频</h4>
+                                <p class="content-desc">介绍我们最新产品的功能特点...</p>
+                                <div class="content-tags">
+                                    <span class="tag">#产品</span>
+                                    <span class="tag">#介绍</span>
+                                </div>
+                                <div class="content-meta">
+                                    <span>创建时间：2024-01-15</span>
+                                    <span class="status published">已发布</span>
+                                </div>
+                            </div>
+                            <div class="content-actions">
+                                <button class="btn btn-sm btn-outline">编辑</button>
+                                <button class="btn btn-sm btn-primary">发布</button>
+                                <button class="btn btn-sm btn-outline">删除</button>
+                            </div>
+                        </div>
+                        
+                        <div class="content-item">
+                            <div class="content-thumbnail">
+                                <img src="/api/placeholder/200/150" alt="图文内容">
+                                <div class="content-type">图文</div>
+                            </div>
+                            <div class="content-info">
+                                <h4>用户案例分享</h4>
+                                <p class="content-desc">分享用户使用产品的真实案例...</p>
+                                <div class="content-tags">
+                                    <span class="tag">#案例</span>
+                                    <span class="tag">#分享</span>
+                                </div>
+                                <div class="content-meta">
+                                    <span>创建时间：2024-01-14</span>
+                                    <span class="status draft">草稿</span>
+                                </div>
+                            </div>
+                            <div class="content-actions">
+                                <button class="btn btn-sm btn-outline">编辑</button>
+                                <button class="btn btn-sm btn-primary">发布</button>
+                                <button class="btn btn-sm btn-outline">删除</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 发布管理页面 -->
+                <div id="publish" class="page-content">
+                    <div class="page-header">
+                        <h2>发布管理</h2>
+                        <button class="btn btn-primary" onclick="refreshPublishTasks()">
+                            <i class="fas fa-sync"></i>
+                            刷新状态
+                        </button>
+                    </div>
+                    
+                    <div class="publish-tabs">
+                        <button class="tab-btn active" data-tab="pending">待发布</button>
+                        <button class="tab-btn" data-tab="published">已发布</button>
+                        <button class="tab-btn" data-tab="failed">发布失败</button>
+                        <button class="tab-btn" data-tab="scheduled">定时发布</button>
+                    </div>
+
+                    <div class="publish-list">
+                        <div class="publish-item">
+                            <div class="publish-content">
+                                <img src="/api/placeholder/80/60" alt="内容缩略图">
+                                <div class="publish-info">
+                                    <h4>产品介绍视频</h4>
+                                    <p>发布账号：品牌官方 (抖音)</p>
+                                    <p>计划发布时间：2024-01-16 10:00</p>
+                                </div>
+                            </div>
+                            <div class="publish-status">
+                                <span class="status pending">待发布</span>
+                            </div>
+                            <div class="publish-actions">
+                                <button class="btn btn-sm btn-primary">立即发布</button>
+                                <button class="btn btn-sm btn-outline">取消</button>
+                            </div>
+                        </div>
+                        
+                        <div class="publish-item">
+                            <div class="publish-content">
+                                <img src="/api/placeholder/80/60" alt="内容缩略图">
+                                <div class="publish-info">
+                                    <h4>用户案例分享</h4>
+                                    <p>发布账号：生活博主 (小红书)</p>
+                                    <p>发布时间：2024-01-15 14:30</p>
+                                </div>
+                            </div>
+                            <div class="publish-status">
+                                <span class="status published">已发布</span>
+                            </div>
+                            <div class="publish-actions">
+                                <button class="btn btn-sm btn-outline">查看详情</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 交互管理页面 -->
+                <div id="interaction" class="page-content">
+                    <div class="page-header">
+                        <h2>交互管理</h2>
+                        <div class="header-actions">
+                            <button class="btn btn-outline" onclick="refreshInteractions()">
+                                <i class="fas fa-sync"></i>
+                                刷新
+                            </button>
+                            <button class="btn btn-primary" onclick="batchReply()">
+                                <i class="fas fa-reply-all"></i>
+                                批量回复
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="interaction-tabs">
+                        <button class="tab-btn active" data-tab="comments">评论管理</button>
+                        <button class="tab-btn" data-tab="messages">私信管理</button>
+                        <button class="tab-btn" data-tab="leads">线索收集</button>
+                    </div>
+
+                    <div class="interaction-list">
+                        <div class="interaction-item">
+                            <div class="user-avatar">
+                                <img src="/api/placeholder/40/40" alt="用户头像">
+                            </div>
+                            <div class="interaction-content">
+                                <div class="user-info">
+                                    <h5>用户123</h5>
+                                    <span class="platform">抖音</span>
+                                    <span class="time">5分钟前</span>
+                                </div>
+                                <div class="message-content">
+                                    <p>这个产品价格多少啊？有优惠吗？</p>
+                                </div>
+                                <div class="ai-reply">
+                                    <span class="ai-label">AI建议回复：</span>
+                                    <p>感谢您的关注！我们的产品有多种优惠套餐，请留下您的联系方式，我们专业顾问会为您详细介绍。</p>
+                                </div>
+                            </div>
+                            <div class="interaction-actions">
+                                <button class="btn btn-sm btn-primary">采用AI回复</button>
+                                <button class="btn btn-sm btn-outline">自定义回复</button>
+                                <button class="btn btn-sm btn-outline">忽略</button>
+                            </div>
+                        </div>
+                        
+                        <div class="interaction-item">
+                            <div class="user-avatar">
+                                <img src="/api/placeholder/40/40" alt="用户头像">
+                            </div>
+                            <div class="interaction-content">
+                                <div class="user-info">
+                                    <h5>美妆达人</h5>
+                                    <span class="platform">小红书</span>
+                                    <span class="time">10分钟前</span>
+                                </div>
+                                <div class="message-content">
+                                    <p>效果真的很好！推荐给朋友们</p>
+                                </div>
+                                <div class="reply-status">
+                                    <span class="status replied">已回复</span>
+                                    <p>谢谢您的推荐！如果朋友们也感兴趣，可以联系我们获取专属优惠～</p>
+                                </div>
+                            </div>
+                            <div class="interaction-actions">
+                                <button class="btn btn-sm btn-outline">查看详情</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 数据统计页面 -->
+                <div id="statistics" class="page-content">
+                    <div class="page-header">
+                        <h2>数据统计</h2>
+                        <div class="date-range-picker">
+                            <input type="date" id="start-date">
+                            <span>至</span>
+                            <input type="date" id="end-date">
+                            <button class="btn btn-outline">查询</button>
+                        </div>
+                    </div>
+                    
+                    <div class="stats-overview">
+                        <div class="stat-card">
+                            <h4>总发布量</h4>
+                            <div class="stat-number">156</div>
+                            <div class="stat-change positive">↑ 12%</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>总互动量</h4>
+                            <div class="stat-number">2,834</div>
+                            <div class="stat-change positive">↑ 8%</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>线索收集</h4>
+                            <div class="stat-number">89</div>
+                            <div class="stat-change positive">↑ 15%</div>
+                        </div>
+                        <div class="stat-card">
+                            <h4>转化率</h4>
+                            <div class="stat-number">3.2%</div>
+                            <div class="stat-change negative">↓ 2%</div>
+                        </div>
+                    </div>
+                    
+                    <div class="charts-grid">
+                        <div class="chart-container">
+                            <h3>发布数据趋势</h3>
+                            <div class="chart-placeholder">
+                                <p>发布数据趋势图表</p>
+                            </div>
+                        </div>
+                        <div class="chart-container">
+                            <h3>平台分布</h3>
+                            <div class="chart-placeholder">
+                                <p>平台分布饼图</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- AI配置页面 -->
+                <div id="ai-config" class="page-content">
+                    <div class="page-header">
+                        <h2>AI配置</h2>
+                        <button class="btn btn-primary" onclick="saveAIConfig()">
+                            <i class="fas fa-save"></i>
+                            保存配置
+                        </button>
+                    </div>
+                    
+                    <div class="config-sections">
+                        <div class="config-section">
+                            <h3>大模型配置</h3>
+                            <div class="form-group">
+                                <label>模型提供商</label>
+                                <select>
+                                    <option value="openai">OpenAI</option>
+                                    <option value="qianwen">通义千问</option>
+                                    <option value="chatglm">ChatGLM</option>
+                                    <option value="baidu">文心一言</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label>API密钥</label>
+                                <input type="password" placeholder="请输入API密钥">
+                            </div>
+                            <div class="form-group">
+                                <label>模型版本</label>
+                                <input type="text" placeholder="gpt-3.5-turbo">
+                            </div>
+                        </div>
+                        
+                        <div class="config-section">
+                            <h3>回复策略配置</h3>
+                            <div class="strategy-tabs">
+                                <button class="tab-btn active" data-tab="comments-strategy">评论回复</button>
+                                <button class="tab-btn" data-tab="messages-strategy">私信回复</button>
+                            </div>
+                            <div class="strategy-content">
+                                <div class="form-group">
+                                    <label>回复风格</label>
+                                    <select>
+                                        <option value="friendly">友好亲和</option>
+                                        <option value="professional">专业正式</option>
+                                        <option value="casual">轻松随意</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>关键词触发</label>
+                                    <textarea placeholder="输入关键词及对应回复模板，每行一组，格式：关键词|回复模板"></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label>线索收集话术</label>
+                                    <textarea placeholder="用于引导用户留下联系方式的话术模板"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <!-- 模态框 -->
+    <div id="modal-overlay" class="modal-overlay">
+        <!-- 添加账号模态框 -->
+        <div id="add-account-modal" class="modal">
+            <div class="modal-header">
+                <h3>添加账号</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>平台类型</label>
+                        <select required>
+                            <option value="">请选择平台</option>
+                            <option value="douyin">抖音</option>
+                            <option value="xiaohongshu">小红书</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>账号名称</label>
+                        <input type="text" placeholder="输入账号名称" required>
+                    </div>
+                    <div class="form-group">
+                        <label>账号ID</label>
+                        <input type="text" placeholder="输入账号ID" required>
+                    </div>
+                    <div class="form-group">
+                        <label>分组</label>
+                        <select>
+                            <option value="">默认分组</option>
+                            <option value="brand">品牌账号</option>
+                            <option value="personal">个人IP</option>
+                        </select>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal()">取消</button>
+                <button class="btn btn-primary">确定</button>
+            </div>
+        </div>
+        
+        <!-- 添加内容模态框 -->
+        <div id="add-content-modal" class="modal">
+            <div class="modal-header">
+                <h3>添加内容</h3>
+                <button class="modal-close">&times;</button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="form-group">
+                        <label>内容类型</label>
+                        <select required>
+                            <option value="">请选择类型</option>
+                            <option value="video">视频</option>
+                            <option value="image">图文</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>标题</label>
+                        <input type="text" placeholder="输入内容标题" required>
+                    </div>
+                    <div class="form-group">
+                        <label>描述</label>
+                        <textarea placeholder="输入内容描述"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label>话题标签</label>
+                        <input type="text" placeholder="输入话题标签，多个标签用逗号分隔">
+                    </div>
+                    <div class="form-group">
+                        <label>上传文件</label>
+                        <div class="file-upload">
+                            <input type="file" accept="video/*,image/*" multiple>
+                            <div class="upload-area">
+                                <i class="fas fa-cloud-upload-alt"></i>
+                                <p>点击或拖拽文件到此处</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>关联账号</label>
+                        <div class="checkbox-group">
+                            <label><input type="checkbox"> 品牌官方 (抖音)</label>
+                            <label><input type="checkbox"> 生活博主 (小红书)</label>
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeModal()">取消</button>
+                <button class="btn btn-primary">确定</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+

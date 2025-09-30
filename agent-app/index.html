@@ -1,0 +1,916 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>内容管理Agent - 终端应用</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="agent-container">
+        <!-- 顶部状态栏 -->
+        <header class="status-bar">
+            <div class="app-info">
+                <div class="app-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+                <div class="app-title">
+                    <h1>内容管理Agent</h1>
+                    <span class="version">v1.0.0</span>
+                </div>
+            </div>
+            <div class="connection-status">
+                <div class="status-indicator" id="connection-status">
+                    <i class="fas fa-circle"></i>
+                    <span>连接状态</span>
+                </div>
+                <div class="server-info">
+                    <span id="server-url">未连接</span>
+                </div>
+            </div>
+            <div class="control-buttons">
+                <button class="btn btn-sm btn-outline" onclick="openSettings()">
+                    <i class="fas fa-cog"></i>
+                    设置
+                </button>
+                <button class="btn btn-sm btn-outline" onclick="minimizeApp()">
+                    <i class="fas fa-minus"></i>
+                </button>
+                <button class="btn btn-sm btn-danger" onclick="closeApp()">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+        </header>
+
+        <!-- 主内容区 -->
+        <main class="main-content">
+            <!-- 左侧导航 -->
+            <nav class="nav-sidebar">
+                <ul class="nav-list">
+                    <li class="nav-item active" data-page="dashboard">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <span>总览</span>
+                    </li>
+                    <li class="nav-item" data-page="account">
+                        <i class="fas fa-user-circle"></i>
+                        <span>账号绑定</span>
+                    </li>
+                    <li class="nav-item" data-page="sync">
+                        <i class="fas fa-sync-alt"></i>
+                        <span>内容同步</span>
+                    </li>
+                    <li class="nav-item" data-page="tasks">
+                        <i class="fas fa-tasks"></i>
+                        <span>任务队列</span>
+                    </li>
+                    <li class="nav-item" data-page="logs">
+                        <i class="fas fa-file-alt"></i>
+                        <span>运行日志</span>
+                    </li>
+                    <li class="nav-item" data-page="rpa">
+                        <i class="fas fa-magic"></i>
+                        <span>RPA状态</span>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- 右侧内容区 -->
+            <div class="content-area">
+                <!-- 总览页面 -->
+                <div id="dashboard" class="page-content active">
+                    <div class="page-header">
+                        <h2>Agent状态总览</h2>
+                        <div class="refresh-btn">
+                            <button class="btn btn-sm btn-primary" onclick="refreshDashboard()">
+                                <i class="fas fa-sync"></i>
+                                刷新
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-cards">
+                        <div class="status-card">
+                            <div class="card-icon">
+                                <i class="fas fa-server"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>服务器连接</h3>
+                                <p class="status online" id="server-connection">在线</p>
+                                <small>最后连接：刚刚</small>
+                            </div>
+                        </div>
+                        
+                        <div class="status-card">
+                            <div class="card-icon">
+                                <i class="fas fa-user"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>绑定账号</h3>
+                                <p class="count" id="bound-accounts">1</p>
+                                <small>抖音账号</small>
+                            </div>
+                        </div>
+                        
+                        <div class="status-card">
+                            <div class="card-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>待处理任务</h3>
+                                <p class="count" id="pending-tasks">3</p>
+                                <small>内容同步任务</small>
+                            </div>
+                        </div>
+                        
+                        <div class="status-card">
+                            <div class="card-icon">
+                                <i class="fas fa-robot"></i>
+                            </div>
+                            <div class="card-info">
+                                <h3>RPA状态</h3>
+                                <p class="status running" id="rpa-status">运行中</p>
+                                <small>影刀RPA工具</small>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="dashboard-sections">
+                        <div class="recent-activity">
+                            <h3>最近活动</h3>
+                            <div class="activity-timeline">
+                                <div class="timeline-item">
+                                    <div class="timeline-dot success"></div>
+                                    <div class="timeline-content">
+                                        <p>成功下载视频 "产品介绍.mp4"</p>
+                                        <small>2分钟前</small>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot info"></div>
+                                    <div class="timeline-content">
+                                        <p>开始同步任务队列</p>
+                                        <small>5分钟前</small>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot warning"></div>
+                                    <div class="timeline-content">
+                                        <p>RPA工具重新启动</p>
+                                        <small>10分钟前</small>
+                                    </div>
+                                </div>
+                                <div class="timeline-item">
+                                    <div class="timeline-dot success"></div>
+                                    <div class="timeline-content">
+                                        <p>成功连接到服务器</p>
+                                        <small>15分钟前</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="system-info">
+                            <h3>系统信息</h3>
+                            <div class="info-list">
+                                <div class="info-item">
+                                    <span class="label">操作系统：</span>
+                                    <span class="value" id="os-info">Windows 11</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">Agent版本：</span>
+                                    <span class="value">v1.0.0</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">运行时长：</span>
+                                    <span class="value" id="uptime">2小时15分钟</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">本地存储：</span>
+                                    <span class="value">C:\ContentAgent\data\</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">内存使用：</span>
+                                    <span class="value" id="memory-usage">85MB</span>
+                                </div>
+                                <div class="info-item">
+                                    <span class="label">网络状态：</span>
+                                    <span class="value status online">正常</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 账号绑定页面 -->
+                <div id="account" class="page-content">
+                    <div class="page-header">
+                        <h2>账号绑定管理</h2>
+                        <button class="btn btn-primary" onclick="bindNewAccount()">
+                            <i class="fas fa-plus"></i>
+                            绑定新账号
+                        </button>
+                    </div>
+                    
+                    <div class="account-section">
+                        <div class="account-card bound">
+                            <div class="account-header">
+                                <div class="platform-badge douyin">
+                                    <i class="fas fa-music"></i>
+                                    <span>抖音</span>
+                                </div>
+                                <div class="account-status">
+                                    <span class="status-dot online"></span>
+                                    <span>已绑定</span>
+                                </div>
+                            </div>
+                            <div class="account-info">
+                                <h4>品牌官方账号</h4>
+                                <p>Account ID: dy_brand_official_2024</p>
+                                <p>绑定时间：2024-01-15 14:30</p>
+                            </div>
+                            <div class="account-actions">
+                                <button class="btn btn-sm btn-outline">测试连接</button>
+                                <button class="btn btn-sm btn-outline">重新绑定</button>
+                                <button class="btn btn-sm btn-danger">解除绑定</button>
+                            </div>
+                        </div>
+                        
+                        <div class="account-card unbound">
+                            <div class="account-header">
+                                <div class="platform-badge xiaohongshu">
+                                    <i class="fas fa-heart"></i>
+                                    <span>小红书</span>
+                                </div>
+                                <div class="account-status">
+                                    <span class="status-dot offline"></span>
+                                    <span>未绑定</span>
+                                </div>
+                            </div>
+                            <div class="account-info">
+                                <h4>点击绑定小红书账号</h4>
+                                <p>支持通过扫码或密钥绑定</p>
+                            </div>
+                            <div class="account-actions">
+                                <button class="btn btn-sm btn-primary" onclick="bindAccount('xiaohongshu')">
+                                    <i class="fas fa-link"></i>
+                                    立即绑定
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="binding-help">
+                        <h3>绑定说明</h3>
+                        <div class="help-content">
+                            <div class="help-step">
+                                <div class="step-number">1</div>
+                                <div class="step-content">
+                                    <h4>获取账号信息</h4>
+                                    <p>从后台管理系统获取分配给此Agent的账号信息</p>
+                                </div>
+                            </div>
+                            <div class="help-step">
+                                <div class="step-number">2</div>
+                                <div class="step-content">
+                                    <h4>验证绑定</h4>
+                                    <p>输入账号密钥或使用二维码扫描进行绑定验证</p>
+                                </div>
+                            </div>
+                            <div class="help-step">
+                                <div class="step-number">3</div>
+                                <div class="step-content">
+                                    <h4>测试连接</h4>
+                                    <p>绑定成功后会自动测试与平台的连接状态</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 内容同步页面 -->
+                <div id="sync" class="page-content">
+                    <div class="page-header">
+                        <h2>内容同步管理</h2>
+                        <div class="sync-controls">
+                            <button class="btn btn-outline" onclick="clearCompleted()">
+                                <i class="fas fa-trash"></i>
+                                清理已完成
+                            </button>
+                            <button class="btn btn-primary" onclick="startSync()">
+                                <i class="fas fa-sync"></i>
+                                开始同步
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="sync-stats">
+                        <div class="stat-item">
+                            <span class="stat-label">同步进度</span>
+                            <div class="progress-bar">
+                                <div class="progress-fill" style="width: 60%"></div>
+                            </div>
+                            <span class="stat-value">3/5</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">下载速度</span>
+                            <span class="stat-value">2.5 MB/s</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-label">剩余时间</span>
+                            <span class="stat-value">约2分钟</span>
+                        </div>
+                    </div>
+                    
+                    <div class="sync-list">
+                        <div class="sync-item completed">
+                            <div class="sync-info">
+                                <div class="file-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="file-details">
+                                    <h4>产品介绍视频.mp4</h4>
+                                    <p>大小：45.2MB | 时长：2:30</p>
+                                    <p>目标账号：品牌官方 (抖音)</p>
+                                </div>
+                            </div>
+                            <div class="sync-status">
+                                <span class="status completed">
+                                    <i class="fas fa-check-circle"></i>
+                                    已完成
+                                </span>
+                                <small>2分钟前</small>
+                            </div>
+                        </div>
+                        
+                        <div class="sync-item in-progress">
+                            <div class="sync-info">
+                                <div class="file-icon">
+                                    <i class="fas fa-images"></i>
+                                </div>
+                                <div class="file-details">
+                                    <h4>用户案例图文</h4>
+                                    <p>包含3张图片 | 总大小：8.5MB</p>
+                                    <p>目标账号：生活博主 (小红书)</p>
+                                </div>
+                            </div>
+                            <div class="sync-status">
+                                <span class="status in-progress">
+                                    <i class="fas fa-spinner fa-spin"></i>
+                                    同步中
+                                </span>
+                                <div class="progress-bar small">
+                                    <div class="progress-fill" style="width: 75%"></div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="sync-item pending">
+                            <div class="sync-info">
+                                <div class="file-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="file-details">
+                                    <h4>新品发布视频.mp4</h4>
+                                    <p>大小：67.8MB | 时长：3:45</p>
+                                    <p>目标账号：品牌官方 (抖音)</p>
+                                </div>
+                            </div>
+                            <div class="sync-status">
+                                <span class="status pending">
+                                    <i class="fas fa-clock"></i>
+                                    等待中
+                                </span>
+                            </div>
+                        </div>
+                        
+                        <div class="sync-item failed">
+                            <div class="sync-info">
+                                <div class="file-icon">
+                                    <i class="fas fa-video"></i>
+                                </div>
+                                <div class="file-details">
+                                    <h4>客户反馈视频.mp4</h4>
+                                    <p>大小：32.1MB | 时长：1:50</p>
+                                    <p>目标账号：品牌官方 (抖音)</p>
+                                </div>
+                            </div>
+                            <div class="sync-status">
+                                <span class="status failed">
+                                    <i class="fas fa-exclamation-circle"></i>
+                                    失败
+                                </span>
+                                <small>网络超时</small>
+                                <button class="btn btn-sm btn-outline retry-btn" onclick="retrySync(this)">重试</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 任务队列页面 -->
+                <div id="tasks" class="page-content">
+                    <div class="page-header">
+                        <h2>任务队列管理</h2>
+                        <div class="task-controls">
+                            <select class="filter-select">
+                                <option value="all">全部任务</option>
+                                <option value="pending">待处理</option>
+                                <option value="running">运行中</option>
+                                <option value="completed">已完成</option>
+                                <option value="failed">失败</option>
+                            </select>
+                            <button class="btn btn-outline" onclick="clearTasks()">
+                                <i class="fas fa-broom"></i>
+                                清空队列
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="task-summary">
+                        <div class="summary-item">
+                            <span class="label">总任务数</span>
+                            <span class="value">12</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">等待中</span>
+                            <span class="value pending">3</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">执行中</span>
+                            <span class="value running">1</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">已完成</span>
+                            <span class="value completed">7</span>
+                        </div>
+                        <div class="summary-item">
+                            <span class="label">失败</span>
+                            <span class="value failed">1</span>
+                        </div>
+                    </div>
+                    
+                    <div class="task-list">
+                        <div class="task-item running">
+                            <div class="task-icon">
+                                <i class="fas fa-download"></i>
+                            </div>
+                            <div class="task-details">
+                                <h4>内容下载任务</h4>
+                                <p>正在下载：用户案例图文.zip</p>
+                                <p>任务ID: TASK_001_20240115_143022</p>
+                            </div>
+                            <div class="task-progress">
+                                <div class="progress-bar">
+                                    <div class="progress-fill" style="width: 45%"></div>
+                                </div>
+                                <span class="progress-text">45%</span>
+                            </div>
+                            <div class="task-actions">
+                                <button class="btn btn-sm btn-outline" onclick="pauseTask(this)">暂停</button>
+                                <button class="btn btn-sm btn-danger" onclick="cancelTask(this)">取消</button>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item pending">
+                            <div class="task-icon">
+                                <i class="fas fa-upload"></i>
+                            </div>
+                            <div class="task-details">
+                                <h4>RPA发布任务</h4>
+                                <p>等待发布：产品介绍视频.mp4</p>
+                                <p>任务ID: TASK_002_20240115_143045</p>
+                            </div>
+                            <div class="task-status">
+                                <span class="status pending">等待中</span>
+                                <small>预计开始：14:35</small>
+                            </div>
+                            <div class="task-actions">
+                                <button class="btn btn-sm btn-primary" onclick="startTask(this)">立即开始</button>
+                                <button class="btn btn-sm btn-outline" onclick="editTask(this)">编辑</button>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item completed">
+                            <div class="task-icon">
+                                <i class="fas fa-check-circle"></i>
+                            </div>
+                            <div class="task-details">
+                                <h4>内容同步任务</h4>
+                                <p>已完成：新品发布图文同步</p>
+                                <p>任务ID: TASK_003_20240115_142030</p>
+                            </div>
+                            <div class="task-status">
+                                <span class="status completed">已完成</span>
+                                <small>耗时：2分30秒</small>
+                            </div>
+                            <div class="task-actions">
+                                <button class="btn btn-sm btn-outline" onclick="viewTaskDetails(this)">查看详情</button>
+                                <button class="btn btn-sm btn-outline" onclick="deleteTask(this)">删除</button>
+                            </div>
+                        </div>
+                        
+                        <div class="task-item failed">
+                            <div class="task-icon">
+                                <i class="fas fa-exclamation-triangle"></i>
+                            </div>
+                            <div class="task-details">
+                                <h4>RPA自动回复任务</h4>
+                                <p>失败：评论自动回复处理</p>
+                                <p>任务ID: TASK_004_20240115_141015</p>
+                                <p class="error-message">错误：RPA工具连接超时</p>
+                            </div>
+                            <div class="task-status">
+                                <span class="status failed">失败</span>
+                                <small>5分钟前</small>
+                            </div>
+                            <div class="task-actions">
+                                <button class="btn btn-sm btn-primary" onclick="retryTask(this)">重试</button>
+                                <button class="btn btn-sm btn-outline" onclick="viewError(this)">查看错误</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 运行日志页面 -->
+                <div id="logs" class="page-content">
+                    <div class="page-header">
+                        <h2>运行日志</h2>
+                        <div class="log-controls">
+                            <select class="filter-select">
+                                <option value="all">全部日志</option>
+                                <option value="info">信息</option>
+                                <option value="warning">警告</option>
+                                <option value="error">错误</option>
+                                <option value="debug">调试</option>
+                            </select>
+                            <button class="btn btn-outline" onclick="exportLogs()">
+                                <i class="fas fa-download"></i>
+                                导出日志
+                            </button>
+                            <button class="btn btn-outline" onclick="clearLogs()">
+                                <i class="fas fa-trash"></i>
+                                清空日志
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="log-container">
+                        <div class="log-entry info">
+                            <span class="log-time">14:32:15</span>
+                            <span class="log-level info">INFO</span>
+                            <span class="log-message">Agent启动成功，版本：v1.0.0</span>
+                        </div>
+                        <div class="log-entry info">
+                            <span class="log-time">14:32:16</span>
+                            <span class="log-level info">INFO</span>
+                            <span class="log-message">正在连接服务器：https://api.content-manager.com</span>
+                        </div>
+                        <div class="log-entry success">
+                            <span class="log-time">14:32:18</span>
+                            <span class="log-level info">INFO</span>
+                            <span class="log-message">服务器连接成功，Token验证通过</span>
+                        </div>
+                        <div class="log-entry info">
+                            <span class="log-time">14:32:20</span>
+                            <span class="log-level info">INFO</span>
+                            <span class="log-message">开始同步任务队列...</span>
+                        </div>
+                        <div class="log-entry success">
+                            <span class="log-time">14:32:22</span>
+                            <span class="log-level info">INFO</span>
+                            <span class="log-message">发现3个待处理任务</span>
+                        </div>
+                        <div class="log-entry info">
+                            <span class="log-time">14:32:25</span>
+                            <span class="log-level info">INFO</span>
+                            <span class="log-message">开始下载文件：产品介绍视频.mp4</span>
+                        </div>
+                        <div class="log-entry success">
+                            <span class="log-time">14:34:12</span>
+                            <span class="log-level info">INFO</span>
+                            <span class="log-message">文件下载完成：产品介绍视频.mp4 (45.2MB)</span>
+                        </div>
+                        <div class="log-entry warning">
+                            <span class="log-time">14:35:03</span>
+                            <span class="log-level warning">WARN</span>
+                            <span class="log-message">RPA工具响应缓慢，重试连接...</span>
+                        </div>
+                        <div class="log-entry success">
+                            <span class="log-time">14:35:08</span>
+                            <span class="log-level info">INFO</span>
+                            <span class="log-message">RPA工具连接恢复正常</span>
+                        </div>
+                        <div class="log-entry error">
+                            <span class="log-time">14:36:45</span>
+                            <span class="log-level error">ERROR</span>
+                            <span class="log-message">任务执行失败：网络连接超时 (TASK_004_20240115_141015)</span>
+                        </div>
+                        <div class="log-entry info">
+                            <span class="log-time">14:37:01</span>
+                            <span class="log-level info">INFO</span>
+                            <span class="log-message">开始下载文件：用户案例图文.zip</span>
+                        </div>
+                        <div class="log-entry debug">
+                            <span class="log-time">14:37:05</span>
+                            <span class="log-level debug">DEBUG</span>
+                            <span class="log-message">内存使用率：85MB，CPU使用率：12%</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- RPA状态页面 -->
+                <div id="rpa" class="page-content">
+                    <div class="page-header">
+                        <h2>RPA工具状态</h2>
+                        <div class="rpa-controls">
+                            <button class="btn btn-outline" onclick="refreshRPA()">
+                                <i class="fas fa-sync"></i>
+                                刷新状态
+                            </button>
+                            <button class="btn btn-warning" onclick="restartRPA()">
+                                <i class="fas fa-redo"></i>
+                                重启RPA
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="rpa-overview">
+                        <div class="rpa-card">
+                            <div class="rpa-header">
+                                <div class="rpa-icon">
+                                    <i class="fas fa-magic"></i>
+                                </div>
+                                <div class="rpa-info">
+                                    <h3>影刀RPA</h3>
+                                    <p>自动化操作工具</p>
+                                </div>
+                                <div class="rpa-status running">
+                                    <i class="fas fa-circle"></i>
+                                    <span>运行中</span>
+                                </div>
+                            </div>
+                            <div class="rpa-stats">
+                                <div class="stat-row">
+                                    <span class="label">进程ID：</span>
+                                    <span class="value">12345</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="label">运行时长：</span>
+                                    <span class="value">2小时15分钟</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="label">内存占用：</span>
+                                    <span class="value">156MB</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span class="label">CPU使用率：</span>
+                                    <span class="value">8%</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rpa-modules">
+                        <h3>RPA功能模块</h3>
+                        <div class="module-grid">
+                            <div class="module-card active">
+                                <div class="module-icon">
+                                    <i class="fas fa-upload"></i>
+                                </div>
+                                <div class="module-info">
+                                    <h4>自动发布</h4>
+                                    <p>监控文件夹，自动发布内容到平台</p>
+                                    <span class="module-status active">运行中</span>
+                                </div>
+                                <div class="module-controls">
+                                    <button class="btn btn-sm btn-outline">停止</button>
+                                    <button class="btn btn-sm btn-outline">配置</button>
+                                </div>
+                            </div>
+                            
+                            <div class="module-card active">
+                                <div class="module-icon">
+                                    <i class="fas fa-comments"></i>
+                                </div>
+                                <div class="module-info">
+                                    <h4>评论监听</h4>
+                                    <p>监听账号评论和私信</p>
+                                    <span class="module-status active">运行中</span>
+                                </div>
+                                <div class="module-controls">
+                                    <button class="btn btn-sm btn-outline">停止</button>
+                                    <button class="btn btn-sm btn-outline">配置</button>
+                                </div>
+                            </div>
+                            
+                            <div class="module-card active">
+                                <div class="module-icon">
+                                    <i class="fas fa-reply"></i>
+                                </div>
+                                <div class="module-info">
+                                    <h4>自动回复</h4>
+                                    <p>根据AI建议自动回复评论</p>
+                                    <span class="module-status active">运行中</span>
+                                </div>
+                                <div class="module-controls">
+                                    <button class="btn btn-sm btn-outline">停止</button>
+                                    <button class="btn btn-sm btn-outline">配置</button>
+                                </div>
+                            </div>
+                            
+                            <div class="module-card inactive">
+                                <div class="module-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div class="module-info">
+                                    <h4>数据采集</h4>
+                                    <p>采集发布内容的互动数据</p>
+                                    <span class="module-status inactive">已停止</span>
+                                </div>
+                                <div class="module-controls">
+                                    <button class="btn btn-sm btn-primary">启动</button>
+                                    <button class="btn btn-sm btn-outline">配置</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="rpa-logs">
+                        <h3>RPA执行日志</h3>
+                        <div class="log-container mini">
+                            <div class="log-entry success">
+                                <span class="log-time">14:35:22</span>
+                                <span class="log-message">成功发布视频到抖音：产品介绍视频.mp4</span>
+                            </div>
+                            <div class="log-entry info">
+                                <span class="log-time">14:34:18</span>
+                                <span class="log-message">检测到新文件：/videos/pending_publish/产品介绍视频.mp4</span>
+                            </div>
+                            <div class="log-entry info">
+                                <span class="log-time">14:33:45</span>
+                                <span class="log-message">启动抖音应用</span>
+                            </div>
+                            <div class="log-entry success">
+                                <span class="log-time">14:32:12</span>
+                                <span class="log-message">RPA模块初始化完成</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+
+        <!-- 底部状态栏 -->
+        <footer class="status-footer">
+            <div class="footer-left">
+                <span class="status-text">Agent运行正常</span>
+                <span class="separator">|</span>
+                <span class="last-sync">最后同步：刚刚</span>
+            </div>
+            <div class="footer-right">
+                <span class="network-speed">↑ 1.2KB/s ↓ 2.5MB/s</span>
+                <span class="separator">|</span>
+                <span class="server-ping">延迟：45ms</span>
+            </div>
+        </footer>
+    </div>
+
+    <!-- 设置模态框 -->
+    <div id="settings-modal" class="modal-overlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Agent设置</h3>
+                <button class="modal-close" onclick="closeSettings()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="settings-tabs">
+                    <button class="tab-btn active" data-tab="general">常规设置</button>
+                    <button class="tab-btn" data-tab="sync">同步设置</button>
+                    <button class="tab-btn" data-tab="rpa">RPA设置</button>
+                    <button class="tab-btn" data-tab="advanced">高级设置</button>
+                </div>
+                
+                <div class="settings-content">
+                    <div id="general-settings" class="settings-section active">
+                        <div class="form-group">
+                            <label>服务器地址</label>
+                            <input type="text" value="https://api.content-manager.com" placeholder="输入服务器地址">
+                        </div>
+                        <div class="form-group">
+                            <label>Agent密钥</label>
+                            <input type="password" placeholder="输入Agent密钥">
+                        </div>
+                        <div class="form-group">
+                            <label>本地存储路径</label>
+                            <input type="text" value="C:\ContentAgent\data\" placeholder="选择存储路径">
+                            <button class="btn btn-sm btn-outline">浏览</button>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked>
+                                开机自动启动
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked>
+                                最小化到系统托盘
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div id="sync-settings" class="settings-section">
+                        <div class="form-group">
+                            <label>同步间隔（分钟）</label>
+                            <input type="number" value="5" min="1" max="60">
+                        </div>
+                        <div class="form-group">
+                            <label>最大并发下载数</label>
+                            <input type="number" value="3" min="1" max="10">
+                        </div>
+                        <div class="form-group">
+                            <label>网络超时（秒）</label>
+                            <input type="number" value="30" min="10" max="300">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked>
+                                自动重试失败任务
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>重试次数</label>
+                            <input type="number" value="3" min="1" max="10">
+                        </div>
+                    </div>
+                    
+                    <div id="rpa-settings" class="settings-section">
+                        <div class="form-group">
+                            <label>RPA工具路径</label>
+                            <input type="text" value="C:\Program Files\YingDao\YingDao.exe" placeholder="RPA工具安装路径">
+                            <button class="btn btn-sm btn-outline">浏览</button>
+                        </div>
+                        <div class="form-group">
+                            <label>监控文件夹</label>
+                            <input type="text" value="C:\ContentAgent\videos\pending_publish" placeholder="RPA监控的文件夹路径">
+                            <button class="btn btn-sm btn-outline">浏览</button>
+                        </div>
+                        <div class="form-group">
+                            <label>反馈文件夹</label>
+                            <input type="text" value="C:\ContentAgent\feedback" placeholder="RPA反馈数据的文件夹路径">
+                            <button class="btn btn-sm btn-outline">浏览</button>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked>
+                                自动启动RPA工具
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div id="advanced-settings" class="settings-section">
+                        <div class="form-group">
+                            <label>日志级别</label>
+                            <select>
+                                <option value="info">信息</option>
+                                <option value="debug">调试</option>
+                                <option value="warning">警告</option>
+                                <option value="error">错误</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>最大日志文件大小（MB）</label>
+                            <input type="number" value="100" min="10" max="1000">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox" checked>
+                                启用性能监控
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox">
+                                启用调试模式
+                            </label>
+                        </div>
+                        <div class="form-group">
+                            <button class="btn btn-outline">重置所有设置</button>
+                            <button class="btn btn-outline">导出配置</button>
+                            <button class="btn btn-outline">导入配置</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-outline" onclick="closeSettings()">取消</button>
+                <button class="btn btn-primary" onclick="saveSettings()">保存设置</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+
