@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>敏感词管理 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#" class="active"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html" class="active">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">敏感词管理</h1>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <span>/</span>
+                <a href="#">设置</a>
+                <span>/</span>
+                <span>敏感词管理</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <!-- 搜索区域 -->
+            <div class="search-bar">
+                <div class="search-item">
+                    <label>敏感词：</label>
+                    <input type="text" placeholder="请输入敏感词">
+                </div>
+                <div class="search-item">
+                    <label>分类：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="politics">政治敏感</option>
+                        <option value="violence">暴力违法</option>
+                        <option value="pornography">色情低俗</option>
+                        <option value="advertising">广告营销</option>
+                        <option value="custom">自定义</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <label>处理方式：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="block">拦截</option>
+                        <option value="replace">替换</option>
+                        <option value="warn">预警</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <label>状态：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="1">启用</option>
+                        <option value="0">禁用</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary">查询</button>
+                <button class="btn btn-default">重置</button>
+            </div>
+
+            <!-- 操作栏 -->
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <button class="btn btn-success" onclick="window.location.href='form-sensitive-word-edit.html'">+ 新建敏感词</button>
+                    <button class="btn btn-primary">批量导入</button>
+                    <button class="btn btn-default">批量导出</button>
+                    <button class="btn btn-default">批量删除</button>
+                </div>
+            </div>
+
+            <!-- 表格视图 -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="40"><input type="checkbox"></th>
+                            <th width="80">ID</th>
+                            <th>敏感词</th>
+                            <th>分类</th>
+                            <th>处理方式</th>
+                            <th>替换词</th>
+                            <th>命中次数</th>
+                            <th>严重等级</th>
+                            <th>状态</th>
+                            <th>创建时间</th>
+                            <th width="180">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>1</td>
+                            <td>***</td>
+                            <td><span class="badge badge-error">政治敏感</span></td>
+                            <td><span class="badge badge-error">拦截</span></td>
+                            <td>-</td>
+                            <td>0</td>
+                            <td><span class="status-badge error">高</span></td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-01 10:00</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='form-sensitive-word-edit.html'">编辑</button>
+                                    <button class="btn btn-text">禁用</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>2</td>
+                            <td>***</td>
+                            <td><span class="badge badge-error">暴力违法</span></td>
+                            <td><span class="badge badge-error">拦截</span></td>
+                            <td>-</td>
+                            <td>0</td>
+                            <td><span class="status-badge error">高</span></td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-01 10:00</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='form-sensitive-word-edit.html'">编辑</button>
+                                    <button class="btn btn-text">禁用</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>3</td>
+                            <td>***</td>
+                            <td><span class="badge badge-error">色情低俗</span></td>
+                            <td><span class="badge badge-error">拦截</span></td>
+                            <td>-</td>
+                            <td>1</td>
+                            <td><span class="status-badge error">高</span></td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-01 10:00</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='form-sensitive-word-edit.html'">编辑</button>
+                                    <button class="btn btn-text">禁用</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>4</td>
+                            <td>加微信</td>
+                            <td><span class="badge badge-warning">广告营销</span></td>
+                            <td><span class="badge badge-warning">预警</span></td>
+                            <td>-</td>
+                            <td>15</td>
+                            <td><span class="status-badge warning">中</span></td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-01 10:00</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='form-sensitive-word-edit.html'">编辑</button>
+                                    <button class="btn btn-text">禁用</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>5</td>
+                            <td>私聊</td>
+                            <td><span class="badge badge-warning">广告营销</span></td>
+                            <td><span class="badge badge-warning">预警</span></td>
+                            <td>-</td>
+                            <td>8</td>
+                            <td><span class="status-badge warning">中</span></td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-01 10:00</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='form-sensitive-word-edit.html'">编辑</button>
+                                    <button class="btn btn-text">禁用</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>6</td>
+                            <td>低价</td>
+                            <td><span class="badge badge-warning">广告营销</span></td>
+                            <td><span class="badge badge-info">替换</span></td>
+                            <td>***</td>
+                            <td>23</td>
+                            <td><span class="status-badge info">低</span></td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-05 14:30</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='form-sensitive-word-edit.html'">编辑</button>
+                                    <button class="btn btn-text">禁用</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>7</td>
+                            <td>优惠券</td>
+                            <td><span class="badge badge-warning">广告营销</span></td>
+                            <td><span class="badge badge-info">替换</span></td>
+                            <td>***</td>
+                            <td>12</td>
+                            <td><span class="status-badge info">低</span></td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-05 14:30</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='form-sensitive-word-edit.html'">编辑</button>
+                                    <button class="btn btn-text">禁用</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>8</td>
+                            <td>竞品品牌A</td>
+                            <td><span class="badge badge-primary">自定义</span></td>
+                            <td><span class="badge badge-info">替换</span></td>
+                            <td>***</td>
+                            <td>5</td>
+                            <td><span class="status-badge warning">中</span></td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-10 09:20</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='form-sensitive-word-edit.html'">编辑</button>
+                                    <button class="btn btn-text">禁用</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>9</td>
+                            <td>差评</td>
+                            <td><span class="badge badge-primary">自定义</span></td>
+                            <td><span class="badge badge-warning">预警</span></td>
+                            <td>-</td>
+                            <td>3</td>
+                            <td><span class="status-badge warning">中</span></td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-15 16:45</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='form-sensitive-word-edit.html'">编辑</button>
+                                    <button class="btn btn-text">禁用</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>10</td>
+                            <td>投诉</td>
+                            <td><span class="badge badge-primary">自定义</span></td>
+                            <td><span class="badge badge-warning">预警</span></td>
+                            <td>-</td>
+                            <td>7</td>
+                            <td><span class="status-badge warning">中</span></td>
+                            <td><span class="status-badge error">禁用</span></td>
+                            <td>2025-09-18 11:30</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">编辑</button>
+                                    <button class="btn btn-text">启用</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <div class="pagination-info">共 128 条</div>
+                <div class="pagination-controls">
+                    <select>
+                        <option>10条/页</option>
+                        <option>20条/页</option>
+                        <option>50条/页</option>
+                    </select>
+                    <div class="page-numbers">
+                        <button disabled>上一页</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>...</button>
+                        <button>13</button>
+                        <button>下一页</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

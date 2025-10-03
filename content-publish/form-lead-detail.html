@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线索详情 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="active"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html" class="active">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">线索详情</h1>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <span>/</span>
+                <a href="07-lead-collection.html">线索收集</a>
+                <span>/</span>
+                <span>线索详情</span>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 20px;">
+            <!-- 左侧主要信息 -->
+            <div>
+                <!-- 基本信息 -->
+                <div class="content-card" style="margin-bottom: 20px;">
+                    <div style="padding: 20px; border-bottom: 1px solid #e5e6eb; display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 16px; font-weight: 500; color: #1d2129;">基本信息</h3>
+                        <div>
+                            <button class="btn btn-text">编辑</button>
+                            <button class="btn btn-text danger">删除</button>
+                        </div>
+                    </div>
+                    <div style="padding: 20px;">
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+                            <div>
+                                <div style="color: #86909c; font-size: 13px; margin-bottom: 8px;">线索ID</div>
+                                <div style="color: #1d2129;">LEAD2025100301</div>
+                            </div>
+                            <div>
+                                <div style="color: #86909c; font-size: 13px; margin-bottom: 8px;">用户昵称</div>
+                                <div style="color: #1d2129; display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>用户A</span>
+                                </div>
+                            </div>
+                            <div>
+                                <div style="color: #86909c; font-size: 13px; margin-bottom: 8px;">手机号</div>
+                                <div style="color: #1d2129;">138****8888</div>
+                            </div>
+                            <div>
+                                <div style="color: #86909c; font-size: 13px; margin-bottom: 8px;">微信号</div>
+                                <div style="color: #1d2129;">wechat_user_a</div>
+                            </div>
+                            <div>
+                                <div style="color: #86909c; font-size: 13px; margin-bottom: 8px;">来源渠道</div>
+                                <div><span class="tag">私信</span></div>
+                            </div>
+                            <div>
+                                <div style="color: #86909c; font-size: 13px; margin-bottom: 8px;">来源账号</div>
+                                <div style="color: #1d2129;">优米科技官方</div>
+                            </div>
+                            <div>
+                                <div style="color: #86909c; font-size: 13px; margin-bottom: 8px;">收集时间</div>
+                                <div style="color: #1d2129;">2025-10-03 15:30</div>
+                            </div>
+                            <div>
+                                <div style="color: #86909c; font-size: 13px; margin-bottom: 8px;">跟进状态</div>
+                                <div><span class="status-badge warning">新线索</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 跟进记录 -->
+                <div class="content-card">
+                    <div style="padding: 20px; border-bottom: 1px solid #e5e6eb; display: flex; justify-content: space-between; align-items: center;">
+                        <h3 style="font-size: 16px; font-weight: 500; color: #1d2129;">跟进记录</h3>
+                        <button class="btn btn-success">+ 添加跟进</button>
+                    </div>
+                    <div style="padding: 20px;">
+                        <!-- 跟进记录列表 -->
+                        <div style="border-left: 2px solid #e5e6eb; padding-left: 20px; position: relative;">
+                            <!-- 记录1 -->
+                            <div style="margin-bottom: 24px; position: relative;">
+                                <div style="width: 12px; height: 12px; background: #165dff; border-radius: 50%; position: absolute; left: -26px; top: 4px;"></div>
+                                <div style="font-size: 13px; color: #86909c; margin-bottom: 8px;">2025-10-03 16:45 | 张三</div>
+                                <div style="background: #f7f8fa; padding: 12px; border-radius: 6px;">
+                                    <div style="color: #1d2129; margin-bottom: 6px; font-weight: 500;">已电话联系</div>
+                                    <div style="color: #4e5969; font-size: 14px; line-height: 1.6;">
+                                        通过电话与客户进行了初步沟通，客户对产品很感兴趣，约定明天发送详细资料。客户主要关注产品的价格和售后服务。
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- 记录2 -->
+                            <div style="margin-bottom: 24px; position: relative;">
+                                <div style="width: 12px; height: 12px; background: #00b42a; border-radius: 50%; position: absolute; left: -26px; top: 4px;"></div>
+                                <div style="font-size: 13px; color: #86909c; margin-bottom: 8px;">2025-10-03 15:30 | 系统</div>
+                                <div style="background: #f7f8fa; padding: 12px; border-radius: 6px;">
+                                    <div style="color: #1d2129; margin-bottom: 6px; font-weight: 500;">线索创建</div>
+                                    <div style="color: #4e5969; font-size: 14px;">
+                                        通过私信渠道收集到新线索
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 添加跟进表单 -->
+                        <div style="margin-top: 24px; padding: 16px; border: 1px solid #e5e6eb; border-radius: 8px; background: #fafbfc;">
+                            <textarea placeholder="添加新的跟进记录..." rows="4" style="width: 100%; padding: 10px; border: 1px solid #d0d5dd; border-radius: 4px; resize: none;"></textarea>
+                            <div style="margin-top: 12px; display: flex; justify-content: flex-end; gap: 8px;">
+                                <button class="btn btn-default" style="font-size: 13px;">取消</button>
+                                <button class="btn btn-primary" style="font-size: 13px;">保存</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧操作区 -->
+            <div>
+                <!-- 快捷操作 -->
+                <div class="content-card" style="margin-bottom: 20px;">
+                    <div style="padding: 20px; border-bottom: 1px solid #e5e6eb;">
+                        <h3 style="font-size: 16px; font-weight: 500; color: #1d2129;">快捷操作</h3>
+                    </div>
+                    <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+                        <button class="btn btn-primary" style="width: 100%;">📞 拨打电话</button>
+                        <button class="btn btn-default" style="width: 100%;">💬 发送私信</button>
+                        <button class="btn btn-default" style="width: 100%;">📧 发送邮件</button>
+                        <button class="btn btn-default" style="width: 100%;">🔄 同步到CRM</button>
+                        <button class="btn btn-default" style="width: 100%;">👥 转移线索</button>
+                    </div>
+                </div>
+
+                <!-- 状态管理 -->
+                <div class="content-card" style="margin-bottom: 20px;">
+                    <div style="padding: 20px; border-bottom: 1px solid #e5e6eb;">
+                        <h3 style="font-size: 16px; font-weight: 500; color: #1d2129;">状态管理</h3>
+                    </div>
+                    <div style="padding: 20px;">
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; color: #4e5969; font-size: 13px; margin-bottom: 8px;">跟进状态</label>
+                            <select style="width: 100%; padding: 8px 12px; border: 1px solid #d0d5dd; border-radius: 4px;">
+                                <option value="new" selected>新线索</option>
+                                <option value="following">跟进中</option>
+                                <option value="converted">已转化</option>
+                                <option value="invalid">无效</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; color: #4e5969; font-size: 13px; margin-bottom: 8px;">意向等级</label>
+                            <select style="width: 100%; padding: 8px 12px; border: 1px solid #d0d5dd; border-radius: 4px;">
+                                <option value="high" selected>高意向</option>
+                                <option value="medium">中意向</option>
+                                <option value="low">低意向</option>
+                            </select>
+                        </div>
+                        <div style="margin-bottom: 16px;">
+                            <label style="display: block; color: #4e5969; font-size: 13px; margin-bottom: 8px;">下次跟进时间</label>
+                            <input type="datetime-local" style="width: 100%; padding: 8px 12px; border: 1px solid #d0d5dd; border-radius: 4px;">
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%;">保存修改</button>
+                    </div>
+                </div>
+
+                <!-- 标签 -->
+                <div class="content-card">
+                    <div style="padding: 20px; border-bottom: 1px solid #e5e6eb;">
+                        <h3 style="font-size: 16px; font-weight: 500; color: #1d2129;">标签</h3>
+                    </div>
+                    <div style="padding: 20px;">
+                        <div style="display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 12px;">
+                            <span class="tag">高价值客户 ×</span>
+                            <span class="tag">急需 ×</span>
+                        </div>
+                        <button class="btn btn-text" style="font-size: 13px;">+ 添加标签</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

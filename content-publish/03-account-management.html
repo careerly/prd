@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>账号管理 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html" class="active"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">账号管理</h1>
+            <div class="breadcrumb">
+                <a href="#">首页</a>
+                <span>/</span>
+                <span>账号管理</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <!-- 搜索区域 -->
+            <div class="search-bar">
+                <div class="search-item">
+                    <label>账号昵称：</label>
+                    <input type="text" placeholder="请输入账号昵称">
+                </div>
+                <div class="search-item">
+                    <label>平台：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="douyin">抖音</option>
+                        <option value="xiaohongshu">小红书</option>
+                        <option value="kuaishou">快手</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <label>状态：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="normal">正常</option>
+                        <option value="offline">已掉线</option>
+                        <option value="violation">违规</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <label>分组：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="brand1">品牌一部</option>
+                        <option value="brand2">品牌二部</option>
+                        <option value="operation">运营团队</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary">查询</button>
+                <button class="btn btn-default">重置</button>
+                <button class="btn btn-default">高级筛选</button>
+            </div>
+
+            <!-- 操作栏 -->
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <button class="btn btn-success" onclick="window.location.href='form-account-add.html'">+ 新增账号</button>
+                    <button class="btn btn-default">批量分组</button>
+                    <button class="btn btn-default">批量解绑</button>
+                    <button class="btn btn-default">导出</button>
+                </div>
+            </div>
+
+            <!-- 表格 -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="40"><input type="checkbox"></th>
+                            <th>账号ID</th>
+                            <th>昵称</th>
+                            <th>平台</th>
+                            <th>账号</th>
+                            <th>分组</th>
+                            <th>粉丝数</th>
+                            <th>状态</th>
+                            <th>绑定时间</th>
+                            <th width="200">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>10001</td>
+                            <td>优米科技官方</td>
+                            <td>
+                                <span style="color: #f53f3f;">抖音</span>
+                            </td>
+                            <td>admin</td>
+                            <td>品牌一部</td>
+                            <td>125.6万</td>
+                            <td><span class="status-badge success">正常</span></td>
+                            <td>2025-01-15 10:30</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">编辑</button>
+                                    <button class="btn btn-text danger">解绑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>10173</td>
+                            <td>生鲜配送运营平台</td>
+                            <td>
+                                <span style="color: #ff7d00;">小红书</span>
+                            </td>
+                            <td>freshboss</td>
+                            <td>运营团队</td>
+                            <td>8.9万</td>
+                            <td><span class="status-badge success">正常</span></td>
+                            <td>2025-03-20 14:22</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">编辑</button>
+                                    <button class="btn btn-text danger">解绑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>10174</td>
+                            <td>优米科技测试</td>
+                            <td>
+                                <span style="color: #f53f3f;">抖音</span>
+                            </td>
+                            <td>freshtest</td>
+                            <td>品牌一部</td>
+                            <td>1256</td>
+                            <td><span class="status-badge success">正常</span></td>
+                            <td>2025-04-10 09:15</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">编辑</button>
+                                    <button class="btn btn-text danger">解绑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>10175</td>
+                            <td>美食分享家</td>
+                            <td>
+                                <span style="color: #ff7d00;">小红书</span>
+                            </td>
+                            <td>13111111111</td>
+                            <td>品牌二部</td>
+                            <td>45.2万</td>
+                            <td><span class="status-badge success">正常</span></td>
+                            <td>2025-05-08 16:40</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">编辑</button>
+                                    <button class="btn btn-text danger">解绑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>10176</td>
+                            <td>生活好物推荐</td>
+                            <td>
+                                <span style="color: #ff7d00;">小红书</span>
+                            </td>
+                            <td>13111111112</td>
+                            <td>品牌二部</td>
+                            <td>67.8万</td>
+                            <td><span class="status-badge warning">已掉线</span></td>
+                            <td>2025-06-12 11:20</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">编辑</button>
+                                    <button class="btn btn-text danger">解绑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>10177</td>
+                            <td>时尚穿搭日记</td>
+                            <td>
+                                <span style="color: #f53f3f;">抖音</span>
+                            </td>
+                            <td>13111111113</td>
+                            <td>品牌二部</td>
+                            <td>98.5万</td>
+                            <td><span class="status-badge success">正常</span></td>
+                            <td>2025-07-05 13:55</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">编辑</button>
+                                    <button class="btn btn-text danger">解绑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>10178</td>
+                            <td>数码测评师</td>
+                            <td>
+                                <span style="color: #f53f3f;">抖音</span>
+                            </td>
+                            <td>13111111114</td>
+                            <td>运营团队</td>
+                            <td>213.4万</td>
+                            <td><span class="status-badge success">正常</span></td>
+                            <td>2025-08-18 15:30</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">编辑</button>
+                                    <button class="btn btn-text danger">解绑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>10179</td>
+                            <td>健身教练小王</td>
+                            <td>
+                                <span style="color: #ff7d00;">小红书</span>
+                            </td>
+                            <td>18500000000</td>
+                            <td>运营团队</td>
+                            <td>52.1万</td>
+                            <td><span class="status-badge success">正常</span></td>
+                            <td>2025-09-10 10:00</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">编辑</button>
+                                    <button class="btn btn-text danger">解绑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>10180</td>
+                            <td>旅行vlog记录</td>
+                            <td>
+                                <span style="color: #f53f3f;">抖音</span>
+                            </td>
+                            <td>13466666666</td>
+                            <td>品牌一部</td>
+                            <td>78.9万</td>
+                            <td><span class="status-badge error">违规</span></td>
+                            <td>2025-09-22 14:45</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">编辑</button>
+                                    <button class="btn btn-text danger">解绑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>10181</td>
+                            <td>萌宠日常分享</td>
+                            <td>
+                                <span style="color: #ff7d00;">小红书</span>
+                            </td>
+                            <td>h123</td>
+                            <td>品牌一部</td>
+                            <td>31.5万</td>
+                            <td><span class="status-badge success">正常</span></td>
+                            <td>2025-09-28 09:30</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">编辑</button>
+                                    <button class="btn btn-text danger">解绑</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <div class="pagination-info">共 88 条</div>
+                <div class="pagination-controls">
+                    <select>
+                        <option>10条/页</option>
+                        <option>20条/页</option>
+                        <option>50条/页</option>
+                    </select>
+                    <div class="page-numbers">
+                        <button disabled>上一页</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>6</button>
+                        <button>...</button>
+                        <button>9</button>
+                        <button>下一页</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

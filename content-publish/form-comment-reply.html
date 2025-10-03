@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>回复评论 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="active"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html" class="active">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">回复评论</h1>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <span>/</span>
+                <a href="05-comment-management.html">评论管理</a>
+                <span>/</span>
+                <span>回复评论</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div style="padding: 20px; border-bottom: 1px solid #e5e6eb;">
+                <h3 style="font-size: 16px; font-weight: 500; color: #1d2129; margin-bottom: 16px;">原评论内容</h3>
+                <div style="background: #f7f8fa; padding: 16px; border-radius: 8px;">
+                    <div style="display: flex; align-items: flex-start; gap: 12px;">
+                        <div style="width: 40px; height: 40px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center; flex-shrink: 0;">👤</div>
+                        <div style="flex: 1;">
+                            <div style="display: flex; justify-content: space-between; margin-bottom: 8px;">
+                                <span style="font-weight: 500; color: #1d2129;">用户A</span>
+                                <span style="font-size: 13px; color: #86909c;">2025-10-03 15:30</span>
+                            </div>
+                            <div style="color: #4e5969; line-height: 1.6; margin-bottom: 8px;">
+                                这个产品看起来不错，请问价格多少？
+                            </div>
+                            <div style="font-size: 13px; color: #86909c;">
+                                来自：<span style="color: #165dff;">产品介绍视频001</span> | 账号：<span style="color: #165dff;">优米科技官方</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <form class="form-container">
+                <div class="form-group">
+                    <label>回复内容 <span style="color: #f53f3f;">*</span></label>
+                    <textarea placeholder="输入回复内容..." rows="6" style="font-size: 14px;"></textarea>
+                    <div style="margin-top: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="font-size: 13px; color: #86909c;">
+                            建议回复内容简洁明了，避免使用敏感词
+                        </div>
+                        <div style="font-size: 13px; color: #86909c;">
+                            <span>0</span> / 500
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>快捷回复</label>
+                    <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                        <button type="button" class="btn btn-default" style="font-size: 13px;">感谢您的关注！</button>
+                        <button type="button" class="btn btn-default" style="font-size: 13px;">请私信联系我们</button>
+                        <button type="button" class="btn btn-default" style="font-size: 13px;">已为您解答</button>
+                        <button type="button" class="btn btn-default" style="font-size: 13px;">详情请看视频描述</button>
+                        <button type="button" class="btn btn-default" style="font-size: 13px;">欢迎咨询</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>回复方式</label>
+                    <div style="display: flex; gap: 16px;">
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="radio" name="replyType" value="public" style="margin-right: 8px;" checked>
+                            <span>公开回复</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="radio" name="replyType" value="private" style="margin-right: 8px;">
+                            <span>私信回复</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>附加操作</label>
+                    <div style="border: 1px solid #e5e6eb; border-radius: 8px; padding: 16px;">
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" style="margin-right: 8px;">
+                                <span>同时标记为已处理</span>
+                            </label>
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" style="margin-right: 8px;">
+                                <span>添加到线索库</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" style="margin-right: 8px;">
+                                <span>置顶此评论</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>备注</label>
+                    <textarea placeholder="添加内部备注（不对外显示）" rows="3"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='05-comment-management.html'">发送回复</button>
+                    <button type="button" class="btn btn-default" onclick="window.location.href='05-comment-management.html'">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

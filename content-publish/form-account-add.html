@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新增账号 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html" class="active"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">新增账号</h1>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <span>/</span>
+                <a href="03-account-management.html">账号管理</a>
+                <span>/</span>
+                <span>新增账号</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <form class="form-container">
+                <div class="form-group">
+                    <label>选择平台 <span style="color: #f53f3f;">*</span></label>
+                    <select>
+                        <option value="">请选择要绑定的平台</option>
+                        <option value="douyin">抖音</option>
+                        <option value="xiaohongshu">小红书</option>
+                        <option value="kuaishou">快手</option>
+                        <option value="weibo">微博</option>
+                        <option value="wechat">微信公众号</option>
+                    </select>
+                </div>
+
+                <div style="padding: 20px; background: #e8f4ff; border-radius: 8px; margin-bottom: 20px; border-left: 4px solid #165dff;">
+                    <div style="font-size: 14px; color: #1d2129; margin-bottom: 8px; font-weight: 500;">📢 授权说明</div>
+                    <div style="font-size: 13px; color: #4e5969; line-height: 1.6;">
+                        • 请先选择要绑定的平台<br>
+                        • 点击"开始授权"按钮后，将跳转到对应平台的授权页面<br>
+                        • 授权成功后，系统会自动获取账号信息<br>
+                        • 授权过程中请确保网络连接稳定
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>账号昵称 <span style="color: #f53f3f;">*</span></label>
+                    <input type="text" placeholder="授权后自动获取" disabled style="background: #f7f8fa;">
+                </div>
+
+                <div class="form-group">
+                    <label>账号ID</label>
+                    <input type="text" placeholder="授权后自动获取" disabled style="background: #f7f8fa;">
+                </div>
+
+                <div class="form-group">
+                    <label>所属分组 <span style="color: #f53f3f;">*</span></label>
+                    <select>
+                        <option value="">请选择分组</option>
+                        <option value="brand1">品牌一部</option>
+                        <option value="brand2">品牌二部</option>
+                        <option value="operation">运营团队</option>
+                        <option value="marketing">市场部</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>账号备注</label>
+                    <input type="text" placeholder="为账号添加备注名称，方便识别">
+                </div>
+
+                <div class="form-group">
+                    <label>权限设置</label>
+                    <div style="border: 1px solid #e5e6eb; border-radius: 8px; padding: 16px;">
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" style="margin-right: 8px;" checked>
+                                <span>允许发布内容</span>
+                            </label>
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" style="margin-right: 8px;" checked>
+                                <span>允许查看评论</span>
+                            </label>
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" style="margin-right: 8px;" checked>
+                                <span>允许回复评论</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" style="margin-right: 8px;" checked>
+                                <span>允许查看私信</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>备注说明</label>
+                    <textarea placeholder="添加备注说明（选填）" rows="3"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary">开始授权</button>
+                    <button type="button" class="btn btn-default" onclick="window.location.href='03-account-management.html'">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

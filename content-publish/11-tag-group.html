@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>标签组管理 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#" class="active"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html" class="active">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">标签组管理</h1>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <span>/</span>
+                <a href="#">设置</a>
+                <span>/</span>
+                <span>标签组管理</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <!-- 搜索区域 -->
+            <div class="search-bar">
+                <div class="search-item">
+                    <label>标签组名称：</label>
+                    <input type="text" placeholder="请输入标签组名称">
+                </div>
+                <div class="search-item">
+                    <label>状态：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="1">启用</option>
+                        <option value="0">禁用</option>
+                    </select>
+                </div>
+                <button class="btn btn-primary">查询</button>
+                <button class="btn btn-default">重置</button>
+            </div>
+
+            <!-- 操作栏 -->
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <button class="btn btn-success" onclick="window.location.href='form-tag-group-edit.html'">+ 新建标签组</button>
+                </div>
+            </div>
+
+            <!-- 表格视图 -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="40"><input type="checkbox"></th>
+                            <th width="80">ID</th>
+                            <th>标签组名称</th>
+                            <th>标签组编码</th>
+                            <th>描述</th>
+                            <th>标签数量</th>
+                            <th>排序</th>
+                            <th>状态</th>
+                            <th>创建时间</th>
+                            <th width="200">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>1</td>
+                            <td>视频素材标签组</td>
+                            <td>video_material</td>
+                            <td>用于视频素材的标签分类</td>
+                            <td><span class="badge badge-info">12</span></td>
+                            <td>1</td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-01 10:00</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='12-tag-management.html'">查看标签</button>
+                                    <button class="btn btn-text" onclick="window.location.href='form-tag-group-edit.html'">编辑</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>2</td>
+                            <td>图文素材标签组</td>
+                            <td>image_material</td>
+                            <td>用于图文素材的标签分类</td>
+                            <td><span class="badge badge-info">15</span></td>
+                            <td>2</td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-01 10:00</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='12-tag-management.html'">查看标签</button>
+                                    <button class="btn btn-text" onclick="window.location.href='form-tag-group-edit.html'">编辑</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>3</td>
+                            <td>行业标签组</td>
+                            <td>industry</td>
+                            <td>用于标识行业属性</td>
+                            <td><span class="badge badge-info">8</span></td>
+                            <td>3</td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-05 14:30</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='12-tag-management.html'">查看标签</button>
+                                    <button class="btn btn-text" onclick="window.location.href='form-tag-group-edit.html'">编辑</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>4</td>
+                            <td>风格标签组</td>
+                            <td>style</td>
+                            <td>用于标识内容风格</td>
+                            <td><span class="badge badge-info">10</span></td>
+                            <td>4</td>
+                            <td><span class="status-badge success">启用</span></td>
+                            <td>2025-09-10 09:20</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='12-tag-management.html'">查看标签</button>
+                                    <button class="btn btn-text" onclick="window.location.href='form-tag-group-edit.html'">编辑</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>5</td>
+                            <td>目标人群标签组</td>
+                            <td>target_audience</td>
+                            <td>用于标识目标受众</td>
+                            <td><span class="badge badge-info">6</span></td>
+                            <td>5</td>
+                            <td><span class="status-badge error">禁用</span></td>
+                            <td>2025-09-15 16:45</td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='12-tag-management.html'">查看标签</button>
+                                    <button class="btn btn-text" onclick="window.location.href='form-tag-group-edit.html'">编辑</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <div class="pagination-info">共 5 条</div>
+                <div class="pagination-controls">
+                    <select>
+                        <option>10条/页</option>
+                        <option>20条/页</option>
+                        <option>50条/页</option>
+                    </select>
+                    <div class="page-numbers">
+                        <button disabled>上一页</button>
+                        <button class="active">1</button>
+                        <button>下一页</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

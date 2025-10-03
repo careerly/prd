@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>视频素材管理 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#" class="active"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html" class="active">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">视频素材管理</h1>
+            <div class="breadcrumb">
+                <a href="#">首页</a>
+                <span>/</span>
+                <a href="#">素材库管理</a>
+                <span>/</span>
+                <span>视频素材</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <!-- 搜索区域 -->
+            <div class="search-bar">
+                <div class="search-item">
+                    <label>素材名称：</label>
+                    <input type="text" placeholder="请输入素材名称">
+                </div>
+                <div class="search-item">
+                    <label>分类：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="product">产品介绍</option>
+                        <option value="tutorial">教程</option>
+                        <option value="promotion">推广</option>
+                        <option value="event">活动</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <label>标签：</label>
+                    <input type="text" placeholder="请输入标签">
+                </div>
+                <div class="search-item">
+                    <label>上传时间：</label>
+                    <input type="date">
+                    <span>至</span>
+                    <input type="date">
+                </div>
+                <button class="btn btn-primary">查询</button>
+                <button class="btn btn-default">重置</button>
+            </div>
+
+            <!-- 操作栏 -->
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <button class="btn btn-success" onclick="window.location.href='form-video-upload.html'">+ 上传视频</button>
+                    <button class="btn btn-default">批量下架</button>
+                    <button class="btn btn-default">批量删除</button>
+                </div>
+                <div class="toolbar-right">
+                    <span style="color: #86909c; font-size: 13px;">视图切换：</span>
+                    <button class="btn btn-text">🔲 网格</button>
+                    <button class="btn btn-text">📋 列表</button>
+                </div>
+            </div>
+
+            <!-- 媒体网格视图 -->
+            <div class="media-grid">
+                <div class="media-item">
+                    <div class="media-preview">🎬</div>
+                    <div class="media-info">
+                        <div class="media-title">产品介绍视频001 <span class="badge badge-info">v1.2</span></div>
+                        <div class="media-meta">
+                            <span>2.3MB</span>
+                            <span>00:45</span>
+                            <span>1080P</span>
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <span class="tag">产品介绍</span>
+                            <span class="tag">新品</span>
+                            <span class="tag">推荐</span>
+                        </div>
+                        <div style="margin-top: 8px; font-size: 12px; color: #86909c;">
+                            上传时间：2025-10-01 | 更新：2025-10-02
+                        </div>
+                        <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-text" onclick="window.location.href='form-video-preview.html'">预览</button>
+                            <button class="btn btn-text" onclick="window.location.href='form-video-edit.html'">编辑</button>
+                            <button class="btn btn-text">版本历史</button>
+                            <button class="btn btn-text danger">删除</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <div class="media-preview">🎬</div>
+                    <div class="media-info">
+                        <div class="media-title">使用教程视频 <span class="badge badge-success">v1.0</span></div>
+                        <div class="media-meta">
+                            <span>5.8MB</span>
+                            <span>01:25</span>
+                            <span>720P</span>
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <span class="tag">教程</span>
+                            <span class="tag">干货</span>
+                            <span class="tag">热门</span>
+                        </div>
+                        <div style="margin-top: 8px; font-size: 12px; color: #86909c;">
+                            上传时间：2025-09-28
+                        </div>
+                        <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-text">预览</button>
+                            <button class="btn btn-text">编辑</button>
+                            <button class="btn btn-text">版本历史</button>
+                            <button class="btn btn-text danger">删除</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <div class="media-preview">🎬</div>
+                    <div class="media-info">
+                        <div class="media-title">促销活动宣传 <span class="badge badge-warning">v2.1</span></div>
+                        <div class="media-meta">
+                            <span>3.2MB</span>
+                            <span>00:30</span>
+                            <span>1080P</span>
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <span class="tag">推广</span>
+                            <span class="tag">活动</span>
+                            <span class="tag">限时</span>
+                        </div>
+                        <div style="margin-top: 8px; font-size: 12px; color: #86909c;">
+                            上传时间：2025-09-25 | 更新：2025-09-30
+                        </div>
+                        <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-text">预览</button>
+                            <button class="btn btn-text">编辑</button>
+                            <button class="btn btn-text">版本历史</button>
+                            <button class="btn btn-text danger">删除</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <div class="media-preview">🎬</div>
+                    <div class="media-info">
+                        <div class="media-title">品牌故事 <span class="badge badge-success">v1.0</span></div>
+                        <div class="media-meta">
+                            <span>8.5MB</span>
+                            <span>02:10</span>
+                            <span>4K</span>
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <span class="tag">品牌</span>
+                            <span class="tag">企业文化</span>
+                        </div>
+                        <div style="margin-top: 8px; font-size: 12px; color: #86909c;">
+                            上传时间：2025-09-20
+                        </div>
+                        <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-text">预览</button>
+                            <button class="btn btn-text">编辑</button>
+                            <button class="btn btn-text">版本历史</button>
+                            <button class="btn btn-text danger">删除</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <div class="media-preview">🎬</div>
+                    <div class="media-info">
+                        <div class="media-title">客户案例分享 <span class="badge badge-info">v1.3</span></div>
+                        <div class="media-meta">
+                            <span>4.1MB</span>
+                            <span>01:15</span>
+                            <span>1080P</span>
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <span class="tag">案例</span>
+                            <span class="tag">见证</span>
+                            <span class="tag">客户故事</span>
+                        </div>
+                        <div style="margin-top: 8px; font-size: 12px; color: #86909c;">
+                            上传时间：2025-09-18 | 更新：2025-09-25
+                        </div>
+                        <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-text">预览</button>
+                            <button class="btn btn-text">编辑</button>
+                            <button class="btn btn-text">版本历史</button>
+                            <button class="btn btn-text danger">删除</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="media-item">
+                    <div class="media-preview">🎬</div>
+                    <div class="media-info">
+                        <div class="media-title">节日祝福视频 <span class="badge badge-success">v1.0</span></div>
+                        <div class="media-meta">
+                            <span>2.8MB</span>
+                            <span>00:20</span>
+                            <span>720P</span>
+                        </div>
+                        <div style="margin-top: 8px;">
+                            <span class="tag">节日</span>
+                            <span class="tag">祝福</span>
+                        </div>
+                        <div style="margin-top: 8px; font-size: 12px; color: #86909c;">
+                            上传时间：2025-09-15
+                        </div>
+                        <div style="margin-top: 8px; display: flex; gap: 8px; flex-wrap: wrap;">
+                            <button class="btn btn-text">预览</button>
+                            <button class="btn btn-text">编辑</button>
+                            <button class="btn btn-text">版本历史</button>
+                            <button class="btn btn-text danger">删除</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <div class="pagination-info">共 156 条</div>
+                <div class="pagination-controls">
+                    <select>
+                        <option>10条/页</option>
+                        <option>20条/页</option>
+                        <option>50条/页</option>
+                    </select>
+                    <div class="page-numbers">
+                        <button disabled>上一页</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>...</button>
+                        <button>16</button>
+                        <button>下一页</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

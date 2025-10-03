@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>线索收集 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="active"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html" class="active">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">线索收集</h1>
+            <div class="breadcrumb">
+                <a href="#">首页</a>
+                <span>/</span>
+                <a href="#">交互管理</a>
+                <span>/</span>
+                <span>线索收集</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <!-- 搜索区域 -->
+            <div class="search-bar">
+                <div class="search-item">
+                    <label>用户昵称：</label>
+                    <input type="text" placeholder="请输入用户昵称">
+                </div>
+                <div class="search-item">
+                    <label>手机号：</label>
+                    <input type="text" placeholder="请输入手机号">
+                </div>
+                <div class="search-item">
+                    <label>来源渠道：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="comment">评论</option>
+                        <option value="message">私信</option>
+                        <option value="form">表单</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <label>跟进状态：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="new">新线索</option>
+                        <option value="following">跟进中</option>
+                        <option value="converted">已转化</option>
+                        <option value="invalid">无效</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <label>收集时间：</label>
+                    <input type="date">
+                    <span>至</span>
+                    <input type="date">
+                </div>
+                <button class="btn btn-primary">查询</button>
+                <button class="btn btn-default">重置</button>
+            </div>
+
+            <!-- 操作栏 -->
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <button class="btn btn-success" onclick="window.location.href='form-lead-add.html'">+ 手动添加线索</button>
+                    <button class="btn btn-default">批量导出</button>
+                    <button class="btn btn-default">批量分配</button>
+                    <button class="btn btn-default">同步到CRM</button>
+                </div>
+            </div>
+
+            <!-- 表格 -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="40"><input type="checkbox"></th>
+                            <th>线索ID</th>
+                            <th>用户昵称</th>
+                            <th>手机号</th>
+                            <th>微信号</th>
+                            <th>来源渠道</th>
+                            <th>来源账号</th>
+                            <th>收集时间</th>
+                            <th>跟进状态</th>
+                            <th width="180">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>LEAD2025100301</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>用户A</span>
+                                </div>
+                            </td>
+                            <td>138****8888</td>
+                            <td>wechat_user_a</td>
+                            <td>
+                                <span class="tag">私信</span>
+                            </td>
+                            <td>优米科技官方</td>
+                            <td>2025-10-03 15:30</td>
+                            <td><span class="status-badge warning">新线索</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='form-lead-detail.html'">详情</button>
+                                    <button class="btn btn-text">跟进</button>
+                                    <button class="btn btn-text">编辑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>LEAD2025100302</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8ffea; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>爱生活的小美</span>
+                                </div>
+                            </td>
+                            <td>139****6666</td>
+                            <td>xiaomei_123</td>
+                            <td>
+                                <span class="tag">评论</span>
+                            </td>
+                            <td>生活好物推荐</td>
+                            <td>2025-10-03 14:20</td>
+                            <td><span class="status-badge info">跟进中</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">跟进</button>
+                                    <button class="btn btn-text">编辑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>LEAD2025100303</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #fff7e8; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>数码发烧友</span>
+                                </div>
+                            </td>
+                            <td>136****5555</td>
+                            <td>tech_lover</td>
+                            <td>
+                                <span class="tag">私信</span>
+                            </td>
+                            <td>数码测评师</td>
+                            <td>2025-10-03 11:15</td>
+                            <td><span class="status-badge warning">新线索</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">跟进</button>
+                                    <button class="btn btn-text">编辑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>LEAD2025100204</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #ffece8; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>健身新手</span>
+                                </div>
+                            </td>
+                            <td>135****4444</td>
+                            <td>-</td>
+                            <td>
+                                <span class="tag">评论</span>
+                            </td>
+                            <td>健身教练小王</td>
+                            <td>2025-10-02 16:30</td>
+                            <td><span class="status-badge success">已转化</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">跟进</button>
+                                    <button class="btn btn-text">编辑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>LEAD2025100205</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>美食探索者</span>
+                                </div>
+                            </td>
+                            <td>137****7777</td>
+                            <td>foodie_88</td>
+                            <td>
+                                <span class="tag">私信</span>
+                            </td>
+                            <td>美食分享家</td>
+                            <td>2025-10-02 13:45</td>
+                            <td><span class="status-badge info">跟进中</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">跟进</button>
+                                    <button class="btn btn-text">编辑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>LEAD2025100106</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8ffea; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>护肤小白</span>
+                                </div>
+                            </td>
+                            <td>188****9999</td>
+                            <td>skincare_beginner</td>
+                            <td>
+                                <span class="tag">评论</span>
+                            </td>
+                            <td>生活好物推荐</td>
+                            <td>2025-10-01 18:40</td>
+                            <td><span class="status-badge info">跟进中</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">跟进</button>
+                                    <button class="btn btn-text">编辑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>LEAD2025100107</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #fff7e8; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>旅行达人</span>
+                                </div>
+                            </td>
+                            <td>159****3333</td>
+                            <td>-</td>
+                            <td>
+                                <span class="tag">表单</span>
+                            </td>
+                            <td>旅行vlog记录</td>
+                            <td>2025-10-01 15:20</td>
+                            <td><span class="status-badge success">已转化</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">跟进</button>
+                                    <button class="btn btn-text">编辑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>LEAD2025093008</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #ffece8; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>时尚女孩</span>
+                                </div>
+                            </td>
+                            <td>158****2222</td>
+                            <td>fashion_girl</td>
+                            <td>
+                                <span class="tag">私信</span>
+                            </td>
+                            <td>时尚穿搭日记</td>
+                            <td>2025-09-30 11:10</td>
+                            <td><span class="status-badge success">已转化</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">跟进</button>
+                                    <button class="btn btn-text">编辑</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>LEAD2025092909</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>匿名用户</span>
+                                </div>
+                            </td>
+                            <td>-</td>
+                            <td>-</td>
+                            <td>
+                                <span class="tag">评论</span>
+                            </td>
+                            <td>优米科技官方</td>
+                            <td>2025-09-29 16:35</td>
+                            <td><span class="status-badge error">无效</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">详情</button>
+                                    <button class="btn btn-text">跟进</button>
+                                    <button class="btn btn-text">编辑</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <div class="pagination-info">共 567 条</div>
+                <div class="pagination-controls">
+                    <select>
+                        <option>10条/页</option>
+                        <option>20条/页</option>
+                        <option>50条/页</option>
+                    </select>
+                    <div class="page-numbers">
+                        <button disabled>上一页</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>...</button>
+                        <button>57</button>
+                        <button>下一页</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

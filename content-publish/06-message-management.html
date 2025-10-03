@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>私信管理 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="active"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html" class="active">私信管理</a></li>
+                    <li><a href="07-lead-collection.html">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">私信管理</h1>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <span>/</span>
+                <a href="#">交互管理</a>
+                <span>/</span>
+                <span>私信管理</span>
+            </div>
+        </div>
+
+        <div style="display: grid; grid-template-columns: 350px 1fr; gap: 20px; height: calc(100vh - 160px);">
+            <!-- 左侧会话列表 -->
+            <div class="content-card" style="height: 100%; overflow-y: auto; display: flex; flex-direction: column;">
+                <div style="padding: 16px; border-bottom: 1px solid #e5e6eb;">
+                    <input type="text" placeholder="搜索用户..." style="width: 100%; padding: 10px 12px; border: 1px solid #d0d5dd; border-radius: 6px; font-size: 14px;">
+                </div>
+                
+                <div style="padding: 12px 0; flex: 1; overflow-y: auto;">
+                    <!-- 会话项1 - 活跃状态 -->
+                    <div style="padding: 14px 16px; cursor: pointer; background: #e8f4ff; border-left: 4px solid #165dff; transition: all 0.2s;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                            <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 500;">李</div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                                    <div style="font-weight: 600; color: #1d2129; font-size: 15px;">李小姐</div>
+                                    <span style="width: 20px; height: 20px; background: #f53f3f; border-radius: 50%; color: white; font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: 500;">3</span>
+                                </div>
+                                <div style="font-size: 12px; color: #86909c; margin-bottom: 3px;">来自: 优米科技官方 • 抖音</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 13px; color: #4e5969; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 6px;">请问产品有详细的介绍手册吗？</div>
+                        <div style="font-size: 11px; color: #86909c;">3分钟前</div>
+                    </div>
+
+                    <!-- 会话项2 -->
+                    <div style="padding: 14px 16px; cursor: pointer; border-left: 4px solid transparent; transition: all 0.2s; border-bottom: 1px solid #f0f2f5;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                            <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 500;">王</div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                                    <div style="font-weight: 500; color: #1d2129; font-size: 15px;">王先生</div>
+                                </div>
+                                <div style="font-size: 12px; color: #86909c; margin-bottom: 3px;">来自: 生活好物推荐 • 小红书</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 13px; color: #4e5969; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 6px;">好的，谢谢！</div>
+                        <div style="font-size: 11px; color: #86909c;">2小时前</div>
+                    </div>
+
+                    <!-- 会话项3 -->
+                    <div style="padding: 14px 16px; cursor: pointer; border-left: 4px solid transparent; transition: all 0.2s; border-bottom: 1px solid #f0f2f5;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                            <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 500;">张</div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 4px;">
+                                    <div style="font-weight: 500; color: #1d2129; font-size: 15px;">张女士</div>
+                                    <span style="width: 20px; height: 20px; background: #f53f3f; border-radius: 50%; color: white; font-size: 11px; display: flex; align-items: center; justify-content: center; font-weight: 500;">1</span>
+                                </div>
+                                <div style="font-size: 12px; color: #86909c; margin-bottom: 3px;">来自: 数码测评师 • 抖音</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 13px; color: #4e5969; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 6px;">能加个微信详细了解吗？</div>
+                        <div style="font-size: 11px; color: #86909c;">昨天 18:30</div>
+                    </div>
+
+                    <!-- 更多会话... -->
+                    <div style="padding: 14px 16px; cursor: pointer; border-left: 4px solid transparent; transition: all 0.2s; border-bottom: 1px solid #f0f2f5;">
+                        <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 10px;">
+                            <div style="width: 44px; height: 44px; background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 500;">刘</div>
+                            <div style="flex: 1; min-width: 0;">
+                                <div style="font-weight: 500; color: #1d2129; font-size: 15px;">刘女士</div>
+                                <div style="font-size: 12px; color: #86909c; margin-top: 3px;">来自: 健身教练小王 • 小红书</div>
+                            </div>
+                        </div>
+                        <div style="font-size: 13px; color: #4e5969; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; margin-bottom: 6px;">谢谢教练的解答</div>
+                        <div style="font-size: 11px; color: #86909c;">昨天 14:20</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 右侧聊天窗口 -->
+            <div class="content-card" style="height: 100%; display: flex; flex-direction: column;">
+                <!-- 聊天头部 -->
+                <div style="padding: 18px 24px; border-bottom: 1px solid #e5e6eb; display: flex; justify-content: space-between; align-items: center; background: #fafbfc;">
+                    <div style="display: flex; align-items: center; gap: 14px;">
+                        <div style="width: 46px; height: 46px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 600; font-size: 18px;">李</div>
+                        <div>
+                            <div style="font-weight: 600; color: #1d2129; font-size: 16px; margin-bottom: 4px;">李小姐</div>
+                            <div style="font-size: 13px; color: #86909c;">通过"产品介绍视频001"联系 • 用户ID: dy_user_123456</div>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 12px;">
+                        <button class="btn btn-default">📋 查看资料</button>
+                        <button class="btn btn-success">✚ 标记线索</button>
+                    </div>
+                </div>
+
+                <!-- 聊天内容 -->
+                <div style="flex: 1; overflow-y: auto; padding: 24px; background: #f7f8fa;">
+                    <div style="text-align: center; margin-bottom: 24px;">
+                        <span style="font-size: 12px; color: #86909c; background: white; padding: 6px 16px; border-radius: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.06);">2025-10-03 今天</span>
+                    </div>
+
+                    <!-- 对方消息 -->
+                    <div style="display: flex; gap: 12px; margin-bottom: 24px; animation: slideIn 0.3s;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; flex-shrink: 0;">李</div>
+                        <div style="max-width: 60%;">
+                            <div style="margin-bottom: 6px; font-size: 12px; color: #86909c;">李小姐 15:25</div>
+                            <div style="background: white; padding: 12px 16px; border-radius: 8px; font-size: 14px; line-height: 1.6; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                                你好，我看到你们的产品介绍视频，想了解更多信息
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 我方消息 -->
+                    <div style="display: flex; gap: 12px; margin-bottom: 24px; flex-direction: row-reverse;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; flex-shrink: 0;">我</div>
+                        <div style="max-width: 60%;">
+                            <div style="margin-bottom: 6px; font-size: 12px; color: #86909c; text-align: right;">客服小智 15:26</div>
+                            <div style="background: #e8f4ff; padding: 12px 16px; border-radius: 8px; font-size: 14px; line-height: 1.6;">
+                                您好！很高兴为您服务，请问您想了解哪方面的信息呢？我们有详细的产品手册和视频介绍。
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 对方消息 -->
+                    <div style="display: flex; gap: 12px; margin-bottom: 24px;">
+                        <div style="width: 40px; height: 40px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: 500; flex-shrink: 0;">李</div>
+                        <div style="max-width: 60%;">
+                            <div style="margin-bottom: 6px; font-size: 12px; color: #86909c;">李小姐 15:28</div>
+                            <div style="background: white; padding: 12px 16px; border-radius: 8px; font-size: 14px; line-height: 1.6; box-shadow: 0 2px 8px rgba(0,0,0,0.06);">
+                                请问产品有详细的介绍手册吗？价格是多少？可以加个微信详细咨询吗？
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 系统提示 -->
+                    <div style="text-align: center; margin: 24px 0;">
+                        <span style="font-size: 12px; color: #86909c; background: #fff7e8; padding: 6px 16px; border-radius: 20px; border: 1px solid #ffecb3;">
+                            💡 检测到用户有联系意向，建议标记为线索
+                        </span>
+                    </div>
+                </div>
+
+                <!-- 输入框 -->
+                <div style="padding: 20px 24px; border-top: 1px solid #e5e6eb; background: white;">
+                    <div style="display: flex; gap: 12px; margin-bottom: 14px;">
+                        <button class="btn btn-text" style="font-size: 20px;">😊</button>
+                        <button class="btn btn-text">📎 文件</button>
+                        <button class="btn btn-text">🖼️ 图片</button>
+                        <button class="btn btn-text">💡 快捷回复</button>
+                        <button class="btn btn-text">👤 发送名片</button>
+                    </div>
+                    <div style="display: flex; gap: 12px; align-items: flex-end;">
+                        <textarea placeholder="请输入消息内容... (Ctrl+Enter发送)" style="flex: 1; padding: 12px 16px; border: 1px solid #d0d5dd; border-radius: 6px; resize: none; height: 80px; font-size: 14px; line-height: 1.5;"></textarea>
+                        <button class="btn btn-primary" style="height: 80px; min-width: 100px; font-size: 15px;">发送</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateY(10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+    </style>
+</body>
+</html>
+

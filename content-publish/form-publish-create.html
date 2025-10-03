@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新建发布任务 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html" class="active"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">新建发布任务</h1>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <span>/</span>
+                <a href="04-publish-center.html">发布中心</a>
+                <span>/</span>
+                <span>新建任务</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <form class="form-container">
+                <div style="background: #e8f4ff; padding: 16px; border-radius: 8px; margin-bottom: 24px; border-left: 4px solid #165dff;">
+                    <div style="font-weight: 500; color: #1d2129; margin-bottom: 8px;">💡 发布流程</div>
+                    <div style="font-size: 13px; color: #4e5969;">
+                        1. 选择要发布的素材 → 2. 选择发布账号 → 3. 设置发布时间 → 4. 确认并提交
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>选择素材 <span style="color: #f53f3f;">*</span></label>
+                    <div style="border: 1px solid #e5e6eb; border-radius: 8px; padding: 16px; background: #f7f8fa; cursor: pointer;">
+                        <div style="text-align: center;">
+                            <div style="font-size: 36px; margin-bottom: 12px;">📁</div>
+                            <div style="color: #1d2129; margin-bottom: 8px;">点击选择素材</div>
+                            <div style="font-size: 13px; color: #86909c;">从素材库中选择要发布的内容</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>发布平台 <span style="color: #f53f3f;">*</span></label>
+                    <div style="display: flex; gap: 16px;">
+                        <label style="display: flex; align-items: center; cursor: pointer; padding: 12px 20px; border: 2px solid #e5e6eb; border-radius: 8px; flex: 1;">
+                            <input type="checkbox" style="margin-right: 8px;">
+                            <span style="font-size: 20px; margin-right: 8px;">📱</span>
+                            <span>抖音</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer; padding: 12px 20px; border: 2px solid #e5e6eb; border-radius: 8px; flex: 1;">
+                            <input type="checkbox" style="margin-right: 8px;">
+                            <span style="font-size: 20px; margin-right: 8px;">📕</span>
+                            <span>小红书</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer; padding: 12px 20px; border: 2px solid #e5e6eb; border-radius: 8px; flex: 1;">
+                            <input type="checkbox" style="margin-right: 8px;">
+                            <span style="font-size: 20px; margin-right: 8px;">⚡</span>
+                            <span>快手</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>选择账号 <span style="color: #f53f3f;">*</span></label>
+                    <select>
+                        <option value="">请先选择发布平台</option>
+                    </select>
+                    <div style="margin-top: 12px;">
+                        <button type="button" class="btn btn-text">+ 批量选择账号</button>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>发布方式 <span style="color: #f53f3f;">*</span></label>
+                    <div style="display: flex; gap: 16px;">
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="radio" name="publishType" value="now" style="margin-right: 8px;" checked>
+                            <span>立即发布</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="radio" name="publishType" value="scheduled" style="margin-right: 8px;">
+                            <span>定时发布</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>发布时间</label>
+                    <div style="display: flex; gap: 12px;">
+                        <input type="date" style="flex: 1;">
+                        <input type="time" style="flex: 1;">
+                    </div>
+                    <div style="margin-top: 12px;">
+                        <button type="button" class="btn btn-text">🤖 智能推荐发布时间</button>
+                        <span style="margin-left: 8px; font-size: 13px; color: #86909c;">基于历史数据推荐最佳发布时段</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>发布标题</label>
+                    <input type="text" placeholder="可选，不填则使用素材标题">
+                </div>
+
+                <div class="form-group">
+                    <label>发布文案</label>
+                    <textarea placeholder="输入发布文案（选填）" rows="5"></textarea>
+                    <div style="margin-top: 8px; font-size: 13px; color: #86909c;">
+                        <span>已输入 0 字</span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>话题标签</label>
+                    <input type="text" placeholder="添加话题标签，用#号分隔，如：#美食 #探店">
+                </div>
+
+                <div class="form-group">
+                    <label>定位</label>
+                    <input type="text" placeholder="添加地理位置（选填）">
+                </div>
+
+                <div class="form-group">
+                    <label>发布设置</label>
+                    <div style="border: 1px solid #e5e6eb; border-radius: 8px; padding: 16px;">
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" style="margin-right: 8px;">
+                                <span>同时发布到个人动态</span>
+                            </label>
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" style="margin-right: 8px;">
+                                <span>允许评论</span>
+                            </label>
+                        </div>
+                        <div style="margin-bottom: 12px;">
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" style="margin-right: 8px;">
+                                <span>允许转发</span>
+                            </label>
+                        </div>
+                        <div>
+                            <label style="display: flex; align-items: center; cursor: pointer;">
+                                <input type="checkbox" style="margin-right: 8px;">
+                                <span>原创声明</span>
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>失败重试</label>
+                    <div style="display: flex; gap: 16px; align-items: center;">
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" style="margin-right: 8px;" checked>
+                            <span>自动重试</span>
+                        </label>
+                        <div style="display: flex; align-items: center; gap: 8px;">
+                            <span style="color: #4e5969; font-size: 14px;">重试次数：</span>
+                            <input type="number" value="3" min="1" max="5" style="width: 80px; padding: 6px 12px; border: 1px solid #d0d5dd; border-radius: 4px;">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>备注</label>
+                    <textarea placeholder="添加备注信息（选填）" rows="3"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='04-publish-center.html'">确认发布</button>
+                    <button type="button" class="btn btn-default">保存为草稿</button>
+                    <button type="button" class="btn btn-default" onclick="window.location.href='04-publish-center.html'">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

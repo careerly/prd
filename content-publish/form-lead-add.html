@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>手动添加线索 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="active"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html" class="active">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">手动添加线索</h1>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <span>/</span>
+                <a href="07-lead-collection.html">线索收集</a>
+                <span>/</span>
+                <span>添加线索</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <form class="form-container">
+                <div style="background: #fff7e8; padding: 16px; border-radius: 8px; margin-bottom: 24px; border-left: 4px solid #ff7d00;">
+                    <div style="font-weight: 500; color: #1d2129; margin-bottom: 8px;">📝 温馨提示</div>
+                    <div style="font-size: 13px; color: #4e5969;">
+                        手动添加的线索不会自动关联到具体的内容和账号，请确保信息准确完整
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>用户昵称 <span style="color: #f53f3f;">*</span></label>
+                    <input type="text" placeholder="请输入用户昵称">
+                </div>
+
+                <div class="form-group">
+                    <label>手机号</label>
+                    <input type="tel" placeholder="请输入手机号">
+                </div>
+
+                <div class="form-group">
+                    <label>微信号</label>
+                    <input type="text" placeholder="请输入微信号">
+                </div>
+
+                <div class="form-group">
+                    <label>邮箱</label>
+                    <input type="email" placeholder="请输入邮箱">
+                </div>
+
+                <div class="form-group">
+                    <label>来源渠道 <span style="color: #f53f3f;">*</span></label>
+                    <select>
+                        <option value="">请选择来源渠道</option>
+                        <option value="comment">评论</option>
+                        <option value="message">私信</option>
+                        <option value="form">表单</option>
+                        <option value="phone">电话咨询</option>
+                        <option value="offline">线下活动</option>
+                        <option value="other">其他</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>来源账号</label>
+                    <select>
+                        <option value="">请选择来源账号</option>
+                        <option value="account1">优米科技官方</option>
+                        <option value="account2">生活好物推荐</option>
+                        <option value="account3">数码测评师</option>
+                        <option value="account4">健身教练小王</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>意向产品/服务</label>
+                    <input type="text" placeholder="请输入意向产品或服务">
+                </div>
+
+                <div class="form-group">
+                    <label>意向等级</label>
+                    <select>
+                        <option value="">请选择意向等级</option>
+                        <option value="high">高意向</option>
+                        <option value="medium">中意向</option>
+                        <option value="low">低意向</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>跟进状态</label>
+                    <select>
+                        <option value="new">新线索</option>
+                        <option value="following">跟进中</option>
+                        <option value="converted">已转化</option>
+                        <option value="invalid">无效</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>分配给</label>
+                    <select>
+                        <option value="">请选择跟进人</option>
+                        <option value="user1">张三</option>
+                        <option value="user2">李四</option>
+                        <option value="user3">王五</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>标签</label>
+                    <input type="text" placeholder="添加标签，多个标签用逗号分隔">
+                    <div style="margin-top: 8px; font-size: 13px; color: #86909c;">
+                        例如：高价值客户,企业客户,急需
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>详细说明</label>
+                    <textarea placeholder="记录客户需求、沟通内容等详细信息" rows="5"></textarea>
+                </div>
+
+                <div class="form-group">
+                    <label>下次跟进时间</label>
+                    <div style="display: flex; gap: 12px;">
+                        <input type="date" style="flex: 1;">
+                        <input type="time" style="flex: 1;">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>附件</label>
+                    <div style="border: 2px dashed #d0d5dd; border-radius: 8px; padding: 30px; text-align: center; background: #f7f8fa; cursor: pointer;">
+                        <div style="font-size: 32px; margin-bottom: 12px;">📎</div>
+                        <div style="color: #1d2129; margin-bottom: 8px;">上传附件</div>
+                        <div style="font-size: 13px; color: #86909c;">支持图片、文档等格式，单个文件不超过20MB</div>
+                        <input type="file" multiple style="display: none;">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>备注</label>
+                    <textarea placeholder="添加备注信息（选填）" rows="3"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='07-lead-collection.html'">保存线索</button>
+                    <button type="button" class="btn btn-default" onclick="window.location.href='07-lead-collection.html'">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+

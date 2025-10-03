@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>评论管理 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="active"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html" class="active">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">评论管理</h1>
+            <div class="breadcrumb">
+                <a href="#">首页</a>
+                <span>/</span>
+                <a href="#">交互管理</a>
+                <span>/</span>
+                <span>评论管理</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <!-- 搜索区域 -->
+            <div class="search-bar">
+                <div class="search-item">
+                    <label>关键词：</label>
+                    <input type="text" placeholder="请输入评论关键词">
+                </div>
+                <div class="search-item">
+                    <label>账号：</label>
+                    <select>
+                        <option value="">全部账号</option>
+                        <option value="account1">优米科技官方</option>
+                        <option value="account2">生活好物推荐</option>
+                        <option value="account3">数码测评师</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <label>评论状态：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="pending">待处理</option>
+                        <option value="replied">已回复</option>
+                        <option value="ignored">已忽略</option>
+                        <option value="deleted">已删除</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <label>敏感词：</label>
+                    <select>
+                        <option value="">全部</option>
+                        <option value="has">包含敏感词</option>
+                        <option value="none">不含敏感词</option>
+                    </select>
+                </div>
+                <div class="search-item">
+                    <label>评论时间：</label>
+                    <input type="date">
+                    <span>至</span>
+                    <input type="date">
+                </div>
+                <button class="btn btn-primary">查询</button>
+                <button class="btn btn-default">重置</button>
+            </div>
+
+            <!-- 操作栏 -->
+            <div class="toolbar">
+                <div class="toolbar-left">
+                    <button class="btn btn-default">批量回复</button>
+                    <button class="btn btn-default">批量删除</button>
+                    <button class="btn btn-default">批量忽略</button>
+                </div>
+                <div class="toolbar-right">
+                    <button class="btn btn-default">自动回复设置</button>
+                    <button class="btn btn-default">敏感词设置</button>
+                </div>
+            </div>
+
+            <!-- 表格 -->
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th width="40"><input type="checkbox"></th>
+                            <th>评论用户</th>
+                            <th>评论内容</th>
+                            <th>所属账号</th>
+                            <th>所属内容</th>
+                            <th>评论时间</th>
+                            <th>状态</th>
+                            <th width="200">操作</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>用户A</span>
+                                </div>
+                            </td>
+                            <td>这个产品看起来不错，请问价格多少？</td>
+                            <td>优米科技官方</td>
+                            <td>产品介绍视频001</td>
+                            <td>2025-10-03 15:30</td>
+                            <td><span class="status-badge warning">待处理</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text" onclick="window.location.href='form-comment-reply.html'">回复</button>
+                                    <button class="btn btn-text">忽略</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>爱生活的小美</span>
+                                </div>
+                            </td>
+                            <td>太喜欢这套穿搭了！请问在哪里可以买？</td>
+                            <td>生活好物推荐</td>
+                            <td>秋季新品穿搭指南</td>
+                            <td>2025-10-03 14:20</td>
+                            <td><span class="status-badge success">已回复</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">查看</button>
+                                    <button class="btn btn-text">忽略</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr style="background: #fff7e8;">
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>匿名用户123</span>
+                                </div>
+                            </td>
+                            <td>垃圾产品，骗子公司 <span style="color: #f53f3f; font-weight: 500;">[敏感词]</span></td>
+                            <td>优米科技官方</td>
+                            <td>产品介绍视频001</td>
+                            <td>2025-10-03 13:45</td>
+                            <td><span class="status-badge warning">待处理</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">回复</button>
+                                    <button class="btn btn-text">忽略</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>美食探索者</span>
+                                </div>
+                            </td>
+                            <td>这家店我也去过，真的很赞！</td>
+                            <td>美食分享家</td>
+                            <td>美食探店日料</td>
+                            <td>2025-10-03 12:50</td>
+                            <td><span class="status-badge success">已回复</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">查看</button>
+                                    <button class="btn btn-text">忽略</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>数码发烧友</span>
+                                </div>
+                            </td>
+                            <td>想了解更多参数，能加个联系方式详细咨询吗？</td>
+                            <td>数码测评师</td>
+                            <td>数码产品测评</td>
+                            <td>2025-10-03 11:15</td>
+                            <td><span class="status-badge warning">待处理</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">回复</button>
+                                    <button class="btn btn-text">忽略</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>健身新手</span>
+                                </div>
+                            </td>
+                            <td>这个动作我做不标准，有详细教程吗？</td>
+                            <td>健身教练小王</td>
+                            <td>健身小白入门指南</td>
+                            <td>2025-10-02 16:30</td>
+                            <td><span class="status-badge success">已回复</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">查看</button>
+                                    <button class="btn btn-text">忽略</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>旅行达人</span>
+                                </div>
+                            </td>
+                            <td>收藏了，周末就去！</td>
+                            <td>旅行vlog记录</td>
+                            <td>旅行攻略周边游</td>
+                            <td>2025-10-01 20:15</td>
+                            <td><span class="status-badge info">已忽略</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">回复</button>
+                                    <button class="btn btn-text">查看</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td><input type="checkbox"></td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 8px;">
+                                    <div style="width: 32px; height: 32px; background: #e8f4ff; border-radius: 50%; display: flex; align-items: center; justify-content: center;">👤</div>
+                                    <span>护肤小白</span>
+                                </div>
+                            </td>
+                            <td>敏感肌可以用吗？有试用装吗？</td>
+                            <td>生活好物推荐</td>
+                            <td>护肤品测评</td>
+                            <td>2025-10-01 18:40</td>
+                            <td><span class="status-badge warning">待处理</span></td>
+                            <td>
+                                <div class="table-actions">
+                                    <button class="btn btn-text">回复</button>
+                                    <button class="btn btn-text">忽略</button>
+                                    <button class="btn btn-text danger">删除</button>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- 分页 -->
+            <div class="pagination">
+                <div class="pagination-info">共 1,856 条</div>
+                <div class="pagination-controls">
+                    <select>
+                        <option>10条/页</option>
+                        <option>20条/页</option>
+                        <option>50条/页</option>
+                    </select>
+                    <div class="page-numbers">
+                        <button disabled>上一页</button>
+                        <button class="active">1</button>
+                        <button>2</button>
+                        <button>3</button>
+                        <button>4</button>
+                        <button>5</button>
+                        <button>...</button>
+                        <button>186</button>
+                        <button>下一页</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>编辑敏感词 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html">图文素材</a></li>
+                    <li><a href="10-material-category.html">素材分类</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#" class="active"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html" class="active">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">新建/编辑敏感词</h1>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <span>/</span>
+                <a href="#">设置</a>
+                <span>/</span>
+                <a href="13-sensitive-words.html">敏感词管理</a>
+                <span>/</span>
+                <span>编辑敏感词</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <div class="form-container">
+                <div class="form-section">
+                    <h3 class="form-section-title">基本信息</h3>
+                    
+                    <div class="form-group">
+                        <label class="required">敏感词</label>
+                        <input type="text" class="form-control" placeholder="请输入敏感词" value="加微信">
+                        <div class="form-help">支持单个词语或短语，创建后不可修改</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">分类</label>
+                        <select class="form-control">
+                            <option value="">请选择分类</option>
+                            <option value="politics">政治敏感</option>
+                            <option value="violence">暴力违法</option>
+                            <option value="pornography">色情低俗</option>
+                            <option value="advertising" selected>广告营销</option>
+                            <option value="custom">自定义</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="required">严重等级</label>
+                        <select class="form-control">
+                            <option value="">请选择严重等级</option>
+                            <option value="high">高（直接拦截）</option>
+                            <option value="medium" selected>中（预警提示）</option>
+                            <option value="low">低（仅记录）</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">处理方式</h3>
+                    
+                    <div class="form-group">
+                        <label class="required">处理方式</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="action" value="block">
+                                <span>拦截</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="action" value="replace">
+                                <span>替换</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="action" value="warn" checked>
+                                <span>预警</span>
+                            </label>
+                        </div>
+                        <div class="form-help">
+                            拦截：直接阻止发送；替换：用指定内容替换；预警：标记并通知管理员
+                        </div>
+                    </div>
+
+                    <div class="form-group" id="replaceWordGroup">
+                        <label>替换词</label>
+                        <input type="text" class="form-control" placeholder="请输入替换词（选择替换方式时必填）" value="">
+                        <div class="form-help">当选择"替换"方式时，用此内容替换敏感词</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>匹配模式</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="match_mode" value="exact" checked>
+                                <span>精确匹配</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="match_mode" value="fuzzy">
+                                <span>模糊匹配</span>
+                            </label>
+                        </div>
+                        <div class="form-help">
+                            精确匹配：完全一致才触发；模糊匹配：包含即触发
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">适用范围</h3>
+                    
+                    <div class="form-group">
+                        <label>适用场景</label>
+                        <div class="checkbox-group">
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="scope" value="comment" checked>
+                                <span>评论</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="scope" value="message" checked>
+                                <span>私信</span>
+                            </label>
+                            <label class="checkbox-label">
+                                <input type="checkbox" name="scope" value="content">
+                                <span>内容发布</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>备注</label>
+                        <textarea class="form-control" rows="3" placeholder="请输入备注信息">用于识别评论和私信中的引导加微信行为</textarea>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3 class="form-section-title">状态与统计</h3>
+                    
+                    <div class="form-group">
+                        <label>状态</label>
+                        <div class="radio-group">
+                            <label class="radio-label">
+                                <input type="radio" name="status" value="1" checked>
+                                <span>启用</span>
+                            </label>
+                            <label class="radio-label">
+                                <input type="radio" name="status" value="0">
+                                <span>禁用</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="info-grid">
+                        <div class="info-item">
+                            <label>命中次数</label>
+                            <div class="info-value">15 次</div>
+                        </div>
+                        <div class="info-item">
+                            <label>最近命中时间</label>
+                            <div class="info-value">2025-10-03 10:25</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-actions">
+                    <button class="btn btn-primary">保存</button>
+                    <button class="btn btn-default" onclick="window.location.href='13-sensitive-words.html'">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 根据处理方式显示/隐藏替换词输入框
+        document.querySelectorAll('input[name="action"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const replaceWordGroup = document.getElementById('replaceWordGroup');
+                if (this.value === 'replace') {
+                    replaceWordGroup.style.display = 'block';
+                } else {
+                    replaceWordGroup.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+
+

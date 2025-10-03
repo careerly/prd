@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>新建图文素材 - 内容管理与分发平台</title>
+    <link rel="stylesheet" href="common.css">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <div class="top-navbar">
+        <div class="logo">
+            <div class="logo-icon">📱</div>
+            <span>内容管理与分发平台</span>
+        </div>
+        <div class="system-name">视频与图文内容管理系统</div>
+        <div class="right-menu">
+            <span>🔍</span>
+            <span>🔔</span>
+            <span>🌐</span>
+            <div class="user-info">
+                <div class="avatar">👤</div>
+                <span>管理员</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- 侧边栏 -->
+    <div class="sidebar">
+        <ul class="sidebar-menu">
+            <li><a href="index.html"><span class="icon">🏠</span>首页</a></li>
+            <li>
+                <a href="#" class="active"><span class="icon">📁</span>素材库管理</a>
+                <ul class="submenu">
+                    <li><a href="01-video-materials.html">视频素材</a></li>
+                    <li><a href="02-image-materials.html" class="active">图文素材</a></li>
+                </ul>
+            </li>
+            <li><a href="03-account-management.html"><span class="icon">👥</span>账号管理</a></li>
+            <li>
+                <a href="04-publish-center.html"><span class="icon">📤</span>发布中心</a>
+                <ul class="submenu">
+                    <li><a href="04-1-publish-image.html">图文发布</a></li>
+                    <li><a href="04-2-publish-video.html">视频发布</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><span class="icon">💬</span>交互管理</a>
+                <ul class="submenu">
+                    <li><a href="05-comment-management.html">评论管理</a></li>
+                    <li><a href="06-message-management.html">私信管理</a></li>
+                    <li><a href="07-lead-collection.html">线索收集</a></li>
+                </ul>
+            </li>
+            <li><a href="08-data-analysis.html"><span class="icon">📊</span>数据分析</a></li>
+            <li>
+                <a href="#"><span class="icon">⚙️</span>设置</a>
+                <ul class="submenu">
+                    <li><a href="11-tag-group.html">标签组管理</a></li>
+                    <li><a href="12-tag-management.html">标签管理</a></li>
+                    <li><a href="13-sensitive-words.html">敏感词管理</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <!-- 主内容区 -->
+    <div class="main-container">
+        <div class="page-header">
+            <h1 class="page-title">新建图文素材</h1>
+            <div class="breadcrumb">
+                <a href="index.html">首页</a>
+                <span>/</span>
+                <a href="02-image-materials.html">图文素材管理</a>
+                <span>/</span>
+                <span>新建图文</span>
+            </div>
+        </div>
+
+        <div class="content-card">
+            <form class="form-container">
+                <div class="form-group">
+                    <label>图文标题 <span style="color: #f53f3f;">*</span></label>
+                    <input type="text" placeholder="请输入图文标题">
+                    <div style="margin-top: 8px; font-size: 13px; color: #86909c;">
+                        建议标题字数在20字以内，更容易吸引用户点击
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>封面图 <span style="color: #f53f3f;">*</span></label>
+                    <div style="border: 2px dashed #d0d5dd; border-radius: 8px; padding: 40px; text-align: center; background: #f7f8fa; cursor: pointer;">
+                        <div style="font-size: 48px; margin-bottom: 16px;">🖼️</div>
+                        <div style="color: #1d2129; font-size: 16px; margin-bottom: 8px;">点击上传封面图</div>
+                        <div style="color: #86909c; font-size: 13px;">建议尺寸：1080x1350（4:5），支持JPG、PNG格式，不超过10MB</div>
+                        <input type="file" accept="image/*" style="display: none;">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>内容图片</label>
+                    <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 12px;">
+                        <div style="aspect-ratio: 1; border: 2px dashed #d0d5dd; border-radius: 8px; display: flex; align-items: center; justify-content: center; cursor: pointer; background: #f7f8fa;">
+                            <div style="text-align: center;">
+                                <div style="font-size: 32px; margin-bottom: 4px;">+</div>
+                                <div style="font-size: 12px; color: #86909c;">添加图片</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="font-size: 13px; color: #86909c;">
+                        最多上传9张图片，支持拖拽排序
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>图文内容 <span style="color: #f53f3f;">*</span></label>
+                    <textarea placeholder="请输入图文内容..." rows="12" style="font-size: 14px; line-height: 1.8;"></textarea>
+                    <div style="margin-top: 8px; display: flex; justify-content: space-between; align-items: center;">
+                        <div style="font-size: 13px; color: #86909c;">
+                            建议内容在500-1000字之间
+                        </div>
+                        <div style="font-size: 13px; color: #86909c;">
+                            <span id="charCount">0</span> / 5000
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>分类 <span style="color: #f53f3f;">*</span></label>
+                    <select>
+                        <option value="">请选择分类</option>
+                        <option value="product">产品图文</option>
+                        <option value="guide">指南攻略</option>
+                        <option value="lifestyle">生活方式</option>
+                        <option value="review">测评推荐</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>标签</label>
+                    <input type="text" placeholder="请输入标签，多个标签用逗号分隔">
+                    <div style="margin-top: 8px; font-size: 13px; color: #86909c;">
+                        例如：穿搭,秋季,新品
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>发布平台</label>
+                    <div style="display: flex; gap: 16px;">
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" style="margin-right: 8px;">
+                            <span>小红书</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" style="margin-right: 8px;">
+                            <span>抖音</span>
+                        </label>
+                        <label style="display: flex; align-items: center; cursor: pointer;">
+                            <input type="checkbox" style="margin-right: 8px;">
+                            <span>快手</span>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>定位</label>
+                    <input type="text" placeholder="添加地理位置（选填）">
+                </div>
+
+                <div class="form-group">
+                    <label>权限设置</label>
+                    <select>
+                        <option value="public">公开（所有人可见）</option>
+                        <option value="team">团队可见</option>
+                        <option value="private">仅自己可见</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label>备注</label>
+                    <textarea placeholder="添加备注信息（选填）" rows="3"></textarea>
+                </div>
+
+                <div class="form-actions">
+                    <button type="button" class="btn btn-primary" onclick="window.location.href='02-image-materials.html'">保存并发布</button>
+                    <button type="button" class="btn btn-default">保存为草稿</button>
+                    <button type="button" class="btn btn-default" onclick="window.location.href='02-image-materials.html'">取消</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
+
